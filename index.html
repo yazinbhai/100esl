@@ -631,34 +631,46 @@
           </g>
 
           <!-- Dynamic Jaw & Viseme LipSync Group -->
-          <g id="jawGroup" style="transition: transform 0.08s ease;">
-            <!-- VISEME 1: CLOSED SMILE (Default Idle) -->
-            <path id="viseme-closed" d="M106 146 Q120 155 134 146" fill="none" stroke="#99281e" stroke-width="3.5" stroke-linecap="round"/>
+          <g id="jawGroup" style="transition: transform 0.06s ease-out; transform-box: fill-box; transform-origin: center;">
+            <!-- VISEME 1: CLOSED SMILE (Default Idle / Pause) -->
+            <path id="viseme-closed" d="M106 147 Q120 156 134 147" fill="none" stroke="#99281e" stroke-width="3.5" stroke-linecap="round"/>
 
-            <!-- VISEME 2: OPEN "AH" (Wide open for A/Ah vowels) -->
-            <g id="viseme-ah" style="display:none;">
-              <path d="M105 142 Q120 137 135 142 Q137 163 120 163 Q103 163 105 142 Z" fill="#6d1a12" stroke="#4a100b" stroke-width="2"/>
-              <!-- Upper White Teeth -->
-              <path d="M109 142 Q120 144 131 142 L131 146 Q120 148 109 146 Z" fill="#ffffff"/>
-              <!-- Tongue -->
-              <path d="M112 156 Q120 152 128 156 Q120 163 112 156 Z" fill="#ee6c4d"/>
-            </g>
-
-            <!-- VISEME 3: OPEN "OH" (Rounded for O/U/W vowels) -->
-            <g id="viseme-oh" style="display:none;">
-              <ellipse cx="120" cy="150" rx="9.5" ry="12" fill="#6d1a12" stroke="#4a100b" stroke-width="2"/>
-              <ellipse cx="120" cy="156" rx="6" ry="4" fill="#ee6c4d"/>
-            </g>
-
-            <!-- VISEME 4: OPEN "EE" (Wide smile for E/I/Y vowels) -->
-            <g id="viseme-ee" style="display:none;">
-              <path d="M103 145 Q120 141 137 145 Q135 156 120 156 Q105 156 103 145 Z" fill="#6d1a12" stroke="#4a100b" stroke-width="2"/>
-              <rect x="108" y="145" width="24" height="4.5" rx="2" fill="#ffffff"/>
-            </g>
-
-            <!-- VISEME 5: "MM" / CONSONANT (Slightly parted) -->
+            <!-- VISEME 2: "MM" / B / P (Lips gently pressed together) -->
             <g id="viseme-mm" style="display:none;">
-              <path d="M107 146 Q120 150 133 146" fill="none" stroke="#99281e" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M107 148 Q120 150 133 148" fill="none" stroke="#8a2016" stroke-width="4.2" stroke-linecap="round"/>
+            </g>
+
+            <!-- VISEME 3: "FV" / F / V (Upper teeth resting on lower lip) -->
+            <g id="viseme-fv" style="display:none;">
+              <path d="M106 146 Q120 144 134 146 Q132 152 120 152 Q108 152 106 146 Z" fill="#6d1a12" stroke="#4a100b" stroke-width="1.5"/>
+              <path d="M109 146 Q120 148 131 146 L130 149.5 Q120 151 110 149.5 Z" fill="#ffffff"/>
+              <path d="M107 151 Q120 154 133 151" fill="none" stroke="#99281e" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+
+            <!-- VISEME 4: "MID" / Consonants (Naturally half-open) -->
+            <g id="viseme-mid" style="display:none;">
+              <path d="M107 145 Q120 142 133 145 Q132 155 120 155 Q108 155 107 145 Z" fill="#6d1a12" stroke="#4a100b" stroke-width="1.8"/>
+              <path d="M111 145 Q120 146.5 129 145 L129 148 Q120 149.5 111 148 Z" fill="#ffffff"/>
+            </g>
+
+            <!-- VISEME 5: OPEN "EE" (Wide smile for E/I/Y vowels) -->
+            <g id="viseme-ee" style="display:none;">
+              <path d="M102 145 Q120 141 138 145 Q136 156 120 156 Q104 156 102 145 Z" fill="#6d1a12" stroke="#4a100b" stroke-width="1.8"/>
+              <path d="M107 145 Q120 146.5 133 145 L133 149 Q120 150.5 107 149 Z" fill="#ffffff"/>
+              <path d="M112 153 Q120 151 128 153 Q120 156 112 153 Z" fill="#ee6c4d"/>
+            </g>
+
+            <!-- VISEME 6: OPEN "OH" (Rounded for O/U/W vowels) -->
+            <g id="viseme-oh" style="display:none;">
+              <ellipse cx="120" cy="150" rx="9" ry="11.5" fill="#6d1a12" stroke="#4a100b" stroke-width="2"/>
+              <ellipse cx="120" cy="156" rx="5.5" ry="3.8" fill="#ee6c4d"/>
+            </g>
+
+            <!-- VISEME 7: OPEN "AH" (Wide open for A/Ah vowels) -->
+            <g id="viseme-ah" style="display:none;">
+              <path d="M105 143 Q120 138 135 143 Q136 163 120 163 Q104 163 105 143 Z" fill="#6d1a12" stroke="#4a100b" stroke-width="2"/>
+              <path d="M109 143 Q120 145 131 143 L131 147 Q120 149 109 147 Z" fill="#ffffff"/>
+              <path d="M111 156 Q120 152 129 156 Q120 163 111 156 Z" fill="#ee6c4d"/>
             </g>
           </g>
         </svg>
@@ -769,23 +781,29 @@
     const eyesOpen = document.getElementById('eyesOpen');
     const eyesClosed = document.getElementById('eyesClosed');
 
-    // --- ADVANCED PHONETIC LIP-SYNC ENGINE ---
+    // --- ADVANCED 7-VISEME PHONETIC LIP-SYNC ENGINE ---
     class LipSyncEngine {
       constructor() {
         this.visemes = {
           closed: document.getElementById('viseme-closed'),
-          ah: document.getElementById('viseme-ah'),
-          oh: document.getElementById('viseme-oh'),
+          mm: document.getElementById('viseme-mm'),
+          fv: document.getElementById('viseme-fv'),
+          mid: document.getElementById('viseme-mid'),
           ee: document.getElementById('viseme-ee'),
-          mm: document.getElementById('viseme-mm')
+          oh: document.getElementById('viseme-oh'),
+          ah: document.getElementById('viseme-ah')
         };
         this.jaw = document.getElementById('jawGroup');
-        this.timer = null;
+        this.stepTimer = null;
+        this.watchdog = null;
         this.activeViseme = 'closed';
+        this.timeline = [];
+        this.cursor = 0;
+        this.isRunning = false;
       }
 
       setViseme(name) {
-        if (!this.visemes[name]) return;
+        if (!this.visemes[name] || this.activeViseme === name) return;
         Object.keys(this.visemes).forEach(k => {
           if (this.visemes[k]) {
             this.visemes[k].style.display = (k === name) ? 'block' : 'none';
@@ -793,58 +811,109 @@
         });
         this.activeViseme = name;
         if (this.jaw) {
-          if (name === 'ah') {
-            this.jaw.style.transform = 'translateY(3px)';
-          } else if (name === 'oh') {
-            this.jaw.style.transform = 'translateY(2px)';
-          } else if (name === 'ee') {
-            this.jaw.style.transform = 'translateY(1.2px)';
-          } else {
-            this.jaw.style.transform = 'translateY(0px)';
-          }
+          const dropMap = { ah: 2.8, oh: 2.0, ee: 1.2, mid: 1.0, fv: 0.6, mm: 0, closed: 0 };
+          this.jaw.style.transform = `translateY(${dropMap[name] || 0}px)`;
         }
       }
 
-      start(utterance, text) {
-        this.stop();
-        const words = (text || '').toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/).filter(w => w.length > 0);
-        let wordIndex = 0;
+      // Convert text into a character-indexed phonetic viseme timeline
+      buildTimeline(text) {
+        const frames = [];
+        const clean = (text || '');
+        for (let i = 0; i < clean.length; i++) {
+          const ch = clean[i].toLowerCase();
+          const next = (clean[i + 1] || '').toLowerCase();
+          let viseme = 'mid';
+          let duration = 68; // ms per phoneme at rate ~0.92
 
-        // Hook 1: Natural word boundary event where available
+          if (ch === ' ') {
+            viseme = 'closed';
+            duration = 55;
+          } else if (/[.,!?;:]/.test(ch)) {
+            viseme = 'closed';
+            duration = 160;
+          } else if (/[mbp]/.test(ch)) {
+            viseme = 'mm';
+            duration = 65;
+          } else if (/[fv]/.test(ch)) {
+            viseme = 'fv';
+            duration = 68;
+          } else if (ch === 'a') {
+            viseme = (next === 'i' || next === 'y') ? 'ee' : 'ah';
+            duration = 90;
+          } else if (/[ouwq]/.test(ch)) {
+            viseme = 'oh';
+            duration = 85;
+          } else if (/[eiy]/.test(ch)) {
+            viseme = 'ee';
+            duration = 82;
+          } else if (/[a-z]/.test(ch)) {
+            viseme = 'mid';
+            duration = 62;
+          } else {
+            continue;
+          }
+
+          // Collapse duplicate consecutive consonant frames for smoother movement
+          if (frames.length > 0 && frames[frames.length - 1].viseme === viseme && viseme === 'mid') {
+            frames[frames.length - 1].duration += 30;
+            continue;
+          }
+          frames.push({ charIndex: i, viseme, duration });
+        }
+        return frames;
+      }
+
+      start(utterance, text, rate = 0.92) {
+        this.stop();
+        this.isRunning = true;
+        this.timeline = this.buildTimeline(text);
+        this.cursor = 0;
+        const speedFactor = 0.92 / (rate || 0.92);
+
+        // Lock cursor directly to exact word boundary on browsers that emit it (Windows Edge/Chrome)
         utterance.onboundary = (e) => {
-          if (e.name === 'word') {
-            const word = words[wordIndex++] || '';
-            this.animateWordViseme(word);
+          if (!this.isRunning) return;
+          if (typeof e.charIndex === 'number') {
+            const targetIdx = this.timeline.findIndex(f => f.charIndex >= e.charIndex);
+            if (targetIdx !== -1) {
+              this.cursor = targetIdx;
+              this.setViseme(this.timeline[this.cursor].viseme);
+            }
           }
         };
 
-        // Hook 2: Continuous syllabic rhythm fallback (110ms-140ms cadence)
-        const syllableCycle = ['ah', 'oh', 'ee', 'mm', 'ah', 'ee', 'mm'];
-        let cycleIdx = 0;
-        this.timer = setInterval(() => {
-          const next = syllableCycle[cycleIdx % syllableCycle.length];
-          cycleIdx++;
-          this.setViseme(next);
-        }, 130);
-      }
+        const tick = () => {
+          if (!this.isRunning) return;
+          if (this.cursor >= this.timeline.length) {
+            this.setViseme('closed');
+            return;
+          }
+          const frame = this.timeline[this.cursor];
+          this.setViseme(frame.viseme);
+          this.cursor++;
+          this.stepTimer = setTimeout(tick, Math.round(frame.duration * speedFactor));
+        };
 
-      animateWordViseme(word) {
-        if (!word) return;
-        if (/[ou]/i.test(word)) {
-          this.setViseme('oh');
-        } else if (/[a]/i.test(word)) {
-          this.setViseme('ah');
-        } else if (/[ei]/i.test(word)) {
-          this.setViseme('ee');
-        } else {
-          this.setViseme('mm');
-        }
+        tick();
+
+        // Watchdog ensures mouth always closes if TTS finishes silently
+        this.watchdog = setInterval(() => {
+          if (this.isRunning && window.speechSynthesis && !window.speechSynthesis.speaking) {
+            this.stop();
+          }
+        }, 250);
       }
 
       stop() {
-        if (this.timer) {
-          clearInterval(this.timer);
-          this.timer = null;
+        this.isRunning = false;
+        if (this.stepTimer) {
+          clearTimeout(this.stepTimer);
+          this.stepTimer = null;
+        }
+        if (this.watchdog) {
+          clearInterval(this.watchdog);
+          this.watchdog = null;
         }
         this.setViseme('closed');
       }
@@ -1058,10 +1127,16 @@
       utterance.rate = 0.92;
       utterance.pitch = 1.05;
 
-      // START PROPER LIP-SYNC ENGINE
-      utterance.onstart = () => {
-        lipSync.start(utterance, text);
+      let lipSyncStarted = false;
+      const beginLipSync = () => {
+        if (!lipSyncStarted && isSpeaking) {
+          lipSyncStarted = true;
+          lipSync.start(utterance, text, utterance.rate);
+        }
       };
+
+      // START PROPER LIP-SYNC ENGINE
+      utterance.onstart = beginLipSync;
 
       utterance.onend = () => {
         lipSync.stop();
@@ -1082,6 +1157,11 @@
       };
 
       synth.speak(utterance);
+
+      // Mobile browser safety fallback if onstart event is delayed
+      setTimeout(() => {
+        if (isSpeaking && !lipSyncStarted) beginLipSync();
+      }, 180);
     }
 
     function highlightQuestionCard(id) {
