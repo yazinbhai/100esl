@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kerala Talking Statue - 100 English Questions Kiosk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #0d3b66 0%, #001e3d 50%, #064420 100%);
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --gold: #f4d06f;
+      --gold-dark: #d4a327;
+      --kerala-green: #2d6a4f;
+      --accent-coral: #ee6c4d;
+      --accent-teal: #17c3b2;
+      --text-dark: #1b263b;
+      --text-muted: #52616b;
+      --font-display: 'Fredoka', cursive, sans-serif;
+      --font-body: 'Nunito', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      font-family: var(--font-body);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Top Kiosk Header */
+    header {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid rgba(244, 208, 111, 0.3);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      font-size: 2rem;
+      background: var(--gold);
+      color: #1b263b;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(244, 208, 111, 0.4);
+    }
+
+    .brand-title h1 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+    }
+
+    .brand-title p {
+      font-size: 0.8rem;
+      color: #b8c1ec;
+    }
+
+    .status-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .pill-awake {
+      background: rgba(45, 106, 79, 0.6);
+      border: 1px solid #52b788;
+      color: #b7e4c7;
+    }
+
+    .pill-awake .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #52b788;
+      animation: pulseGreen 1.5s infinite;
+    }
+
+    .pill-mic {
+      background: rgba(238, 108, 77, 0.2);
+      border: 1px solid var(--accent-coral);
+      color: #ffa69e;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .pill-mic.active {
+      background: rgba(23, 195, 178, 0.25);
+      border-color: var(--accent-teal);
+      color: #a7fff6;
+    }
+
+    /* Main Kiosk Area */
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 20px;
+      padding: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Left Stage: Statue Mascot & Speech Bubbles */
+    .statue-stage {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 28px;
+      backdrop-filter: blur(12px);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Glowing decorative aura */
+    .statue-stage::before {
+      content: '';
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(244, 208, 111, 0.2) 0%, transparent 70%);
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Mascot SVG Container */
+    .mascot-container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .statue-svg {
+      width: 240px;
+      height: 240px;
+      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
+      transition: transform 0.3s ease;
+    }
+
+    /* Mouth animation */
+    .mouth-open {
+      display: none;
+    }
+    .speaking .mouth-closed {
+      display: none;
+    }
+    .speaking .mouth-open {
+      display: block;
+      animation: mouthTalk 0.25s infinite alternate ease-in-out;
+    }
+
+    @keyframes mouthTalk {
+      from { transform: scaleY(0.7); }
+      to { transform: scaleY(1.3); }
+    }
+
+    /* Eye Blink */
+    .eye-pupil {
+      transition: transform 0.2s;
+    }
+    .blinking .eye-open {
+      display: none;
+    }
+    .blinking .eye-closed {
+      display: block;
+    }
+    .eye-closed {
+      display: none;
+    }
+
+    /* Listening Aura Wave */
+    .sound-waves {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 32px;
+      margin-top: 12px;
+    }
+
+    .wave-bar {
+      width: 5px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 4px;
+      transition: height 0.15s ease;
+    }
+
+    .listening .wave-bar {
+      background: var(--accent-teal);
+      animation: waveDance 0.8s infinite ease-in-out;
+    }
+    .listening .wave-bar:nth-child(2) { animation-delay: 0.1s; }
+    .listening .wave-bar:nth-child(3) { animation-delay: 0.2s; }
+    .listening .wave-bar:nth-child(4) { animation-delay: 0.3s; }
+    .listening .wave-bar:nth-child(5) { animation-delay: 0.4s; }
+    .listening .wave-bar:nth-child(6) { animation-delay: 0.2s; }
+    .listening .wave-bar:nth-child(7) { animation-delay: 0.1s; }
+
+    @keyframes waveDance {
+      0%, 100% { height: 8px; }
+      50% { height: 32px; }
+    }
+
+    /* Statue State Banner */
+    .statue-state-badge {
+      margin-top: 10px;
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+
+    .state-listening {
+      background: rgba(23, 195, 178, 0.35);
+      border-color: var(--accent-teal);
+      color: #a7fff6;
+    }
+
+    .state-speaking {
+      background: rgba(244, 208, 111, 0.35);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .state-confused {
+      background: rgba(238, 108, 77, 0.35);
+      border-color: var(--accent-coral);
+      color: #ffa69e;
+    }
+
+    /* Conversation Cards Area */
+    .conversation-display {
+      width: 100%;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .speech-box {
+      border-radius: 18px;
+      padding: 16px 20px;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Student Box */
+    .student-box {
+      background: rgba(255, 255, 255, 0.12);
+      border-left: 6px solid var(--accent-teal);
+    }
+
+    .student-box .box-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-teal);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .student-box .box-text {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #ffffff;
+      min-height: 32px;
+    }
+
+    /* Statue Answer Box */
+    .statue-box {
+      background: #ffffff;
+      color: var(--text-dark);
+      border-left: 6px solid var(--gold-dark);
+    }
+
+    .statue-box .box-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold-dark);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .statue-box .box-text {
+      font-size: 1.45rem;
+      font-weight: 800;
+      font-family: var(--font-display);
+      color: #0b2545;
+      line-height: 1.35;
+    }
+
+    .match-tag {
+      font-size: 0.75rem;
+      background: #eef1f6;
+      padding: 2px 8px;
+      border-radius: 6px;
+      color: var(--text-muted);
+    }
+
+    /* Right Sidebar: 100 Questions Sheet & Test Bench */
+    .sidebar-panel {
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--text-dark);
+      border-radius: 28px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      max-height: 82vh;
+    }
+
+    .sidebar-header {
+      padding-bottom: 14px;
+      border-bottom: 2px solid #e9ecef;
+    }
+
+    .sidebar-header h2 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: #0d3b66;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .q-count-badge {
+      background: var(--gold);
+      color: #1b263b;
+      font-size: 0.8rem;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-weight: 800;
+    }
+
+    .search-box {
+      margin-top: 10px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1.5px solid #ced4da;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: #0d3b66;
+    }
+
+    /* Question list container */
+    .questions-list {
+      flex: 1;
+      overflow-y: auto;
+      margin-top: 12px;
+      padding-right: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Custom scrollbar */
+    .questions-list::-webkit-scrollbar {
+      width: 6px;
+    }
+    .questions-list::-webkit-scrollbar-thumb {
+      background: #ced4da;
+      border-radius: 3px;
+    }
+
+    .q-card {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 12px;
+      padding: 10px 12px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .q-card:hover {
+      background: #edf2f7;
+      border-color: #cbd5e1;
+      transform: translateY(-1px);
+    }
+
+    .q-card.selected {
+      border-color: #0d3b66;
+      background: #e7f1ff;
+    }
+
+    .q-card-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+
+    .q-card-question {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 4px;
+    }
+
+    .q-card-answer {
+      font-size: 0.85rem;
+      color: #059669;
+      font-weight: 600;
+    }
+
+    .test-btn {
+      margin-top: 6px;
+      background: #e2e8f0;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #334155;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .test-btn:hover {
+      background: #cbd5e1;
+    }
+
+    /* Kiosk Footer Controls */
+    footer {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #94a3b8;
+    }
+
+    .footer-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 8px 18px;
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #1b263b;
+    }
+    .btn-primary:hover {
+      background: #ffe082;
+      box-shadow: 0 4px 12px rgba(244, 208, 111, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(82, 183, 136, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(82, 183, 136, 0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Kiosk Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">🗿</div>
+      <div class="brand-title">
+        <h1>Kerala Talking Statue & Toy Kiosk</h1>
+        <p>Interactive English Q&A for Kerala School Students (100 Basic Sentences)</p>
+      </div>
+    </div>
+
+    <div class="status-badge-group">
+      <div class="pill pill-awake" title="Screen Wake Lock is active. The PC will not sleep.">
+        <span class="dot"></span>
+        <span id="wakeLockStatus">Always Awake: ON</span>
+      </div>
+      <div class="pill pill-mic active" id="micPill" onclick="toggleListening()">
+        <span id="micIcon">🎙️</span>
+        <span id="micStatusText">Statue Mic: ACTIVE</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Kiosk Body -->
+  <main>
+    <!-- Left: Talking Statue & Live Transcript -->
+    <section class="statue-stage" id="stageContainer">
+      
+      <!-- Statue Mascot (Animated SVG) -->
+      <div class="mascot-container" id="mascotWrapper">
+        <svg class="statue-svg" id="statueSvg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Aura Background -->
+          <circle cx="100" cy="100" r="90" fill="#f4d06f" opacity="0.15" />
+          
+          <!-- Traditional Kerala Crown / Headgear (Kireedam Style Stylized) -->
+          <path d="M70 55 L100 20 L130 55 L120 65 L80 65 Z" fill="#d4a327" stroke="#b48215" stroke-width="2"/>
+          <circle cx="100" cy="35" r="5" fill="#ee6c4d" />
+          <polygon points="100,22 103,28 100,34 97,28" fill="#fff"/>
+
+          <!-- Statue Head (Golden Bronze Hue) -->
+          <ellipse cx="100" cy="105" rx="55" ry="60" fill="#f9c74f" stroke="#d4a327" stroke-width="3" />
+
+          <!-- Kerala Traditional Kasavu Shawl / Shoulders -->
+          <path d="M48 155 Q100 185 152 155 L170 200 L30 200 Z" fill="#e9ecef" stroke="#d4a327" stroke-width="2"/>
+          <!-- Golden border of Kasavu -->
+          <path d="M48 155 Q100 185 152 155" fill="none" stroke="#d4a327" stroke-width="6"/>
+
+          <!-- Tilak / Chandanam Mark on Forehead -->
+          <path d="M96 75 Q100 70 104 75 L100 82 Z" fill="#ee6c4d"/>
+          <line x1="88" y1="78" x2="112" y2="78" stroke="#ffffff" stroke-width="2"/>
+
+          <!-- Ears with Kerala Kundalam Ornaments -->
+          <circle cx="44" cy="105" r="12" fill="#f9c74f" stroke="#d4a327" stroke-width="2"/>
+          <circle cx="42" cy="118" r="6" fill="#d4a327"/>
+          <circle cx="156" cy="105" r="12" fill="#f9c74f" stroke="#d4a327" stroke-width="2"/>
+          <circle cx="158" cy="118" r="6" fill="#d4a327"/>
+
+          <!-- Eyebrows -->
+          <path d="M72 88 Q85 82 94 88" fill="none" stroke="#6c584c" stroke-width="3" stroke-linecap="round"/>
+          <path d="M106 88 Q115 82 128 88" fill="none" stroke="#6c584c" stroke-width="3" stroke-linecap="round"/>
+
+          <!-- Eyes (Open State) -->
+          <g class="eye-open" id="eyesOpen">
+            <!-- Left Eye -->
+            <ellipse cx="83" cy="98" rx="10" ry="7" fill="#ffffff" stroke="#6c584c" stroke-width="1.5"/>
+            <circle class="eye-pupil" cx="83" cy="98" r="4.5" fill="#2b2d42"/>
+            <circle cx="85" cy="96" r="1.5" fill="#ffffff"/>
+
+            <!-- Right Eye -->
+            <ellipse cx="117" cy="98" rx="10" ry="7" fill="#ffffff" stroke="#6c584c" stroke-width="1.5"/>
+            <circle class="eye-pupil" cx="117" cy="98" r="4.5" fill="#2b2d42"/>
+            <circle cx="119" cy="96" r="1.5" fill="#ffffff"/>
+          </g>
+
+          <!-- Eyes (Blinking/Closed State) -->
+          <g class="eye-closed" id="eyesClosed">
+            <path d="M73 98 Q83 105 93 98" fill="none" stroke="#6c584c" stroke-width="3" stroke-linecap="round"/>
+            <path d="M107 98 Q117 105 127 98" fill="none" stroke="#6c584c" stroke-width="3" stroke-linecap="round"/>
+          </g>
+
+          <!-- Friendly Smile Nose -->
+          <path d="M100 96 L97 114 L103 114" fill="none" stroke="#b48215" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Rosy Cheeks -->
+          <ellipse cx="68" cy="115" rx="8" ry="4" fill="#ee6c4d" opacity="0.3"/>
+          <ellipse cx="132" cy="115" rx="8" ry="4" fill="#ee6c4d" opacity="0.3"/>
+
+          <!-- Mouth (Closed Smile) -->
+          <path class="mouth-closed" id="mouthClosed" d="M84 128 Q100 144 116 128" fill="none" stroke="#a03020" stroke-width="4" stroke-linecap="round"/>
+
+          <!-- Mouth (Open / Speaking Smile) -->
+          <g class="mouth-open" id="mouthOpen">
+            <ellipse cx="100" cy="133" rx="14" ry="10" fill="#a03020" stroke="#7a1f12" stroke-width="2"/>
+            <!-- Tongue -->
+            <path d="M92 135 Q100 131 108 135 Q100 142 92 135 Z" fill="#ee6c4d"/>
+            <!-- White teeth -->
+            <rect x="94" y="125" width="12" height="3" rx="1" fill="#ffffff"/>
+          </g>
+        </svg>
+
+        <!-- Sound Waves Effect -->
+        <div class="sound-waves" id="soundWaves">
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+        </div>
+
+        <!-- Dynamic Statue Status Badge -->
+        <div class="statue-state-badge state-listening" id="stateBadge">
+          👂 I am listening... Ask me a question!
+        </div>
+      </div>
+
+      <!-- Live Speech & Answer Dialogue Bubbles -->
+      <div class="conversation-display">
+        <!-- Student's Input -->
+        <div class="speech-box student-box">
+          <div class="box-label">
+            <span>🧒 Student's Voice (Through Mic)</span>
+            <span id="interimIndicator" style="display:none; color: var(--accent-teal); font-size: 0.7rem;">[Hearing...]</span>
+          </div>
+          <div class="box-text" id="studentSpeechText">
+            "Ask me any of the 100 questions..."
+          </div>
+        </div>
+
+        <!-- Statue's Answer -->
+        <div class="speech-box statue-box">
+          <div class="box-label">
+            <span>🗿 Statue's Spoken Answer (Through Speaker)</span>
+            <span class="match-tag" id="matchBadge">Waiting for input</span>
+          </div>
+          <div class="box-text" id="statueAnswerText">
+            Hello students! I am your talking statue. Ask me your questions!
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Right: 100 Q&A Bank & Kiosk Test Bench -->
+    <aside class="sidebar-panel">
+      <div class="sidebar-header">
+        <h2>
+          <span>100 Basic Q&A Bank</span>
+          <span class="q-count-badge" id="qCountBadge">100 Items</span>
+        </h2>
+        <div class="search-box">
+          <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search question or keyword..." oninput="filterQuestions()">
+        </div>
+      </div>
+
+      <div class="questions-list" id="questionsList">
+        <!-- Populated via JS -->
+      </div>
+    </aside>
+  </main>
+
+  <!-- Kiosk Footer -->
+  <footer>
+    <div class="footer-left">
+      <span>📍 Kerala School ESL Kiosk</span>
+      <span>•</span>
+      <span>Language: <strong>English (India) [en-IN]</strong></span>
+      <span>•</span>
+      <span>Unrecognized Query Response: <em>"I don't understand the question"</em></span>
+    </div>
+    <div class="footer-actions">
+      <button class="btn btn-secondary" onclick="simulateRandomQuestion()">🎲 Test Random Question</button>
+      <button class="btn btn-primary" onclick="simulateUnknownQuestion()">❓ Test Unknown Question</button>
+    </div>
+  </footer>
+
+  <!-- Load the 100 Questions Data -->
+  <script src="questions.js"></script>
+
+  <script>
+    // --- Application State ---
+    let questionsData = window.TALKING_STATUE_QUESTIONS || [];
+    let isListening = false;
+    let isSpeaking = false;
+    let recognition = null;
+    let wakeLock = null;
+    let synth = window.speechSynthesis;
+    let selectedVoice = null;
+    let restartTimer = null;
+
+    // --- DOM Elements ---
+    const mascotWrapper = document.getElementById('mascotWrapper');
+    const stageContainer = document.getElementById('stageContainer');
+    const stateBadge = document.getElementById('stateBadge');
+    const studentSpeechText = document.getElementById('studentSpeechText');
+    const statueAnswerText = document.getElementById('statueAnswerText');
+    const matchBadge = document.getElementById('matchBadge');
+    const interimIndicator = document.getElementById('interimIndicator');
+    const micPill = document.getElementById('micPill');
+    const micIcon = document.getElementById('micIcon');
+    const micStatusText = document.getElementById('micStatusText');
+    const questionsListEl = document.getElementById('questionsList');
+    const wakeLockStatus = document.getElementById('wakeLockStatus');
+    const eyesOpen = document.getElementById('eyesOpen');
+    const eyesClosed = document.getElementById('eyesClosed');
+
+    // --- Blink Animation Loop ---
+    function triggerBlink() {
+      eyesOpen.style.display = 'none';
+      eyesClosed.style.display = 'block';
+      setTimeout(() => {
+        eyesOpen.style.display = 'block';
+        eyesClosed.style.display = 'none';
+      }, 180);
+      const nextBlink = Math.random() * 4000 + 2500;
+      setTimeout(triggerBlink, nextBlink);
+    }
+    setTimeout(triggerBlink, 3000);
+
+    // --- Populate 100 Questions in Sidebar ---
+    function renderQuestionList(list) {
+      questionsListEl.innerHTML = '';
+      list.forEach((item) => {
+        const card = document.createElement('div');
+        card.className = 'q-card';
+        card.id = `qcard-${item.id}`;
+        card.innerHTML = `
+          <div class="q-card-header">
+            <span>#${item.id} • ${item.category}</span>
+          </div>
+          <div class="q-card-question">Q: ${item.question}</div>
+          <div class="q-card-answer">A: ${item.answer}</div>
+          <button class="test-btn" onclick="event.stopPropagation(); triggerQuestionById(${item.id})">
+            ▶ Test Question
+          </button>
+        `;
+        card.onclick = () => triggerQuestionById(item.id);
+        questionsListEl.appendChild(card);
+      });
+      document.getElementById('qCountBadge').innerText = `${list.length} Items`;
+    }
+
+    function filterQuestions() {
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      if (!q) {
+        renderQuestionList(questionsData);
+        return;
+      }
+      const filtered = questionsData.filter(item => 
+        item.question.toLowerCase().includes(q) ||
+        item.answer.toLowerCase().includes(q) ||
+        item.category.toLowerCase().includes(q) ||
+        (item.synonyms && item.synonyms.some(s => s.toLowerCase().includes(q)))
+      );
+      renderQuestionList(filtered);
+    }
+
+    // --- Voice Selector (Prefers Indian English en-IN) ---
+    function setupVoices() {
+      if (!synth) return;
+      const voices = synth.getVoices();
+      if (!voices.length) return;
+
+      // Priority 1: Indian English
+      selectedVoice = voices.find(v => v.lang === 'en-IN') ||
+                      voices.find(v => v.lang.includes('en-IN')) ||
+                      voices.find(v => v.name.toLowerCase().includes('india')) ||
+                      voices.find(v => v.lang.startsWith('en')) ||
+                      voices[0];
+    }
+    if (synth) {
+      setupVoices();
+      synth.onvoiceschanged = setupVoices;
+    }
+
+    // --- Screen WakeLock to Keep PC Awake Always ---
+    async function requestWakeLock() {
+      try {
+        if ('wakeLock' in navigator) {
+          wakeLock = await navigator.wakeLock.request('screen');
+          wakeLockStatus.innerText = 'Always Awake: ACTIVE';
+          wakeLock.addEventListener('release', () => {
+            wakeLockStatus.innerText = 'Always Awake: Released';
+            // Re-acquire automatically
+            setTimeout(requestWakeLock, 2000);
+          });
+        } else {
+          wakeLockStatus.innerText = 'WakeLock: Not Supported';
+        }
+      } catch (err) {
+        console.warn('WakeLock error:', err);
+      }
+    }
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') requestWakeLock();
+    });
+    requestWakeLock();
+
+    // --- Advanced Kerala ESL Accent-Tolerant Matching Engine ---
+    function normalizeText(text) {
+      return text.toLowerCase()
+        .replace(/['’]/g, '')
+        .replace(/[^\w\s]/g, ' ')
+        .replace(/\bwhats\b/g, 'what is')
+        .replace(/\bwhat's\b/g, 'what is')
+        .replace(/\bwhere's\b/g, 'where is')
+        .replace(/\bwheres\b/g, 'where is')
+        .replace(/\bu\b/g, 'you')
+        .replace(/\bur\b/g, 'your')
+        .replace(/\br\b/g, 'are')
+        .replace(/\bwanna\b/g, 'want to')
+        .replace(/\bstandard\b/g, 'class')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function calculateDiceCoefficient(s1, s2) {
+      if (!s1 || !s2) return 0;
+      if (s1 === s2) return 1;
+      const getBigrams = str => {
+        const s = ' ' + str + ' ';
+        const bigrams = new Set();
+        for (let i = 0; i < s.length - 1; i++) {
+          bigrams.add(s.substring(i, i + 2));
+        }
+        return bigrams;
+      };
+      const b1 = getBigrams(s1);
+      const b2 = getBigrams(s2);
+      let intersection = 0;
+      b1.forEach(b => { if (b2.has(b)) intersection++; });
+      return (2.0 * intersection) / (b1.size + b2.size);
+    }
+
+    function findBestQuestionMatch(spoken) {
+      const normSpoken = normalizeText(spoken);
+      if (!normSpoken || normSpoken.length < 3) return null;
+
+      const spokenWords = new Set(normSpoken.split(' ').filter(w => w.length > 1));
+      let bestMatch = null;
+      let highestScore = 0;
+
+      for (const item of questionsData) {
+        const normQ = normalizeText(item.question);
+        
+        // Exact match
+        if (normSpoken === normQ) {
+          return { item, score: 1.0 };
+        }
+
+        // Check synonyms & variations
+        let maxCandidateScore = calculateDiceCoefficient(normSpoken, normQ);
+
+        if (item.synonyms) {
+          for (const syn of item.synonyms) {
+            const normSyn = normalizeText(syn);
+            if (normSpoken === normSyn) {
+              return { item, score: 0.99 };
+            }
+            if (normSpoken.includes(normSyn) || normSyn.includes(normSpoken)) {
+              maxCandidateScore = Math.max(maxCandidateScore, 0.88);
+            }
+            const dice = calculateDiceCoefficient(normSpoken, normSyn);
+            maxCandidateScore = Math.max(maxCandidateScore, dice);
+          }
+        }
+
+        // Token overlap check for key nouns / question words
+        const qWords = normQ.split(' ').filter(w => w.length > 2);
+        let matchCount = 0;
+        qWords.forEach(w => {
+          if (spokenWords.has(w)) matchCount++;
+        });
+        const tokenRatio = qWords.length > 0 ? matchCount / qWords.length : 0;
+
+        const combinedScore = (maxCandidateScore * 0.6) + (tokenRatio * 0.4);
+
+        if (combinedScore > highestScore) {
+          highestScore = combinedScore;
+          bestMatch = item;
+        }
+      }
+
+      // Threshold: 0.58 confidence
+      if (highestScore >= 0.58) {
+        return { item: bestMatch, score: highestScore };
+      }
+      return null;
+    }
+
+    // --- Statue Speech Output (Text-to-Speech) ---
+    function speakAnswer(text, isUnderstood = true, matchedItem = null) {
+      if (!synth) {
+        console.error('Speech synthesis not supported');
+        return;
+      }
+
+      // Stop recognition while statue speaks to avoid acoustic feedback
+      pauseRecognitionForSpeech();
+
+      isSpeaking = true;
+      mascotWrapper.classList.add('speaking');
+      mascotWrapper.classList.remove('listening');
+
+      if (isUnderstood) {
+        stateBadge.className = 'statue-state-badge state-speaking';
+        stateBadge.innerText = '🗣️ Statue Answering...';
+        if (matchedItem) {
+          matchBadge.innerText = `Matched: #${matchedItem.id} (${Math.round(matchedItem._score * 100)}% match)`;
+          highlightQuestionCard(matchedItem.id);
+        }
+      } else {
+        stateBadge.className = 'statue-state-badge state-confused';
+        stateBadge.innerText = '🤔 Question Not Recognized';
+        matchBadge.innerText = 'No 100-Q match (<58%)';
+        clearHighlightedCard();
+      }
+
+      statueAnswerText.innerText = text;
+
+      // Cancel previous utterance
+      synth.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      if (selectedVoice) utterance.voice = selectedVoice;
+      utterance.rate = 0.92; // Clear, measured speed for Kerala ESL students
+      utterance.pitch = 1.05;
+
+      utterance.onend = () => {
+        isSpeaking = false;
+        mascotWrapper.classList.remove('speaking');
+        mascotWrapper.classList.add('listening');
+        stateBadge.className = 'statue-state-badge state-listening';
+        stateBadge.innerText = '👂 I am listening... Ask me a question!';
+        resumeRecognitionAfterSpeech();
+      };
+
+      utterance.onerror = (e) => {
+        console.warn('TTS error:', e);
+        isSpeaking = false;
+        mascotWrapper.classList.remove('speaking');
+        resumeRecognitionAfterSpeech();
+      };
+
+      synth.speak(utterance);
+    }
+
+    function highlightQuestionCard(id) {
+      document.querySelectorAll('.q-card').forEach(c => c.classList.remove('selected'));
+      const target = document.getElementById(`qcard-${id}`);
+      if (target) {
+        target.classList.add('selected');
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function clearHighlightedCard() {
+      document.querySelectorAll('.q-card').forEach(c => c.classList.remove('selected'));
+    }
+
+    // --- Speech Recognition Setup (Continuous & Resilient) ---
+    function initSpeechRecognition() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        stateBadge.className = 'statue-state-badge state-confused';
+        stateBadge.innerText = '⚠️ Web Speech API not supported in this browser. Please use Chrome or Edge.';
+        return;
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-IN'; // Indian English accent model
+      recognition.maxAlternatives = 3;
+
+      recognition.onstart = () => {
+        isListening = true;
+        micPill.classList.add('active');
+        micIcon.innerText = '🎙️';
+        micStatusText.innerText = 'Statue Mic: ACTIVE';
+        if (!isSpeaking) {
+          mascotWrapper.classList.add('listening');
+          stateBadge.className = 'statue-state-badge state-listening';
+          stateBadge.innerText = '👂 I am listening... Ask me a question!';
+        }
+      };
+
+      recognition.onresult = (event) => {
+        if (isSpeaking) return; // Prevent hearing its own voice
+
+        let interimTranscript = '';
+        let finalTranscript = '';
+
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            finalTranscript += event.results[i][0].transcript;
+          } else {
+            interimTranscript += event.results[i][0].transcript;
+          }
+        }
+
+        if (interimTranscript) {
+          interimIndicator.style.display = 'inline';
+          studentSpeechText.innerText = `"${interimTranscript}"`;
+        }
+
+        if (finalTranscript) {
+          interimIndicator.style.display = 'none';
+          const cleanInput = finalTranscript.trim();
+          studentSpeechText.innerText = `"${cleanInput}"`;
+          handleStudentQuestion(cleanInput);
+        }
+      };
+
+      recognition.onerror = (event) => {
+        console.warn('Speech Recognition error:', event.error);
+        if (event.error === 'not-allowed') {
+          stateBadge.className = 'statue-state-badge state-confused';
+          stateBadge.innerText = '⚠️ Microphone access denied. Allow mic permissions.';
+        }
+      };
+
+      recognition.onend = () => {
+        isListening = false;
+        // Auto-restart watchdog if still supposed to listen and not currently speaking
+        if (!isSpeaking) {
+          restartTimer = setTimeout(() => {
+            startRecognitionSafe();
+          }, 300);
+        }
+      };
+    }
+
+    function startRecognitionSafe() {
+      if (!recognition) return;
+      try {
+        recognition.start();
+      } catch (e) {
+        // Already started or restarting
+      }
+    }
+
+    function pauseRecognitionForSpeech() {
+      if (recognition && isListening) {
+        try {
+          recognition.abort();
+        } catch (e) {}
+      }
+    }
+
+    function resumeRecognitionAfterSpeech() {
+      setTimeout(() => {
+        if (!isSpeaking) {
+          startRecognitionSafe();
+        }
+      }, 500);
+    }
+
+    function toggleListening() {
+      if (isListening) {
+        if (recognition) recognition.stop();
+        micPill.classList.remove('active');
+        micIcon.innerText = '🔇';
+        micStatusText.innerText = 'Statue Mic: MUTED';
+        mascotWrapper.classList.remove('listening');
+        stateBadge.className = 'statue-state-badge';
+        stateBadge.innerText = '⏸️ Microphone is Paused';
+      } else {
+        startRecognitionSafe();
+      }
+    }
+
+    // --- Core Processing Logic ---
+    function handleStudentQuestion(questionText) {
+      const match = findBestQuestionMatch(questionText);
+
+      if (match) {
+        const item = match.item;
+        item._score = match.score;
+        speakAnswer(item.answer, true, item);
+      } else {
+        // Explicit Rule: If student asks any other question, answer with "I don't understand the question"
+        speakAnswer("I don't understand the question.", false, null);
+      }
+    }
+
+    // --- Simulation Helpers for Testing / Demos ---
+    function triggerQuestionById(id) {
+      const item = questionsData.find(q => q.id === id);
+      if (!item) return;
+      studentSpeechText.innerText = `"${item.question}"`;
+      handleStudentQuestion(item.question);
+    }
+
+    function simulateRandomQuestion() {
+      const randomIndex = Math.floor(Math.random() * questionsData.length);
+      const randomQ = questionsData[randomIndex];
+      triggerQuestionById(randomQ.id);
+    }
+
+    function simulateUnknownQuestion() {
+      const unknownQuestions = [
+        "What is the theory of relativity?",
+        "Can you fly to Mars?",
+        "What is the stock price of Apple?",
+        "How do you build a rocket ship?",
+        "What is your bank account number?"
+      ];
+      const randomUnknown = unknownQuestions[Math.floor(Math.random() * unknownQuestions.length)];
+      studentSpeechText.innerText = `"${randomUnknown}"`;
+      handleStudentQuestion(randomUnknown);
+    }
+
+    // --- Initialization on Load ---
+    window.addEventListener('DOMContentLoaded', () => {
+      renderQuestionList(questionsData);
+      initSpeechRecognition();
+      
+      // Auto-start recognition on first user click anywhere (browser autoplay policy)
+      const enableAudioAndMic = () => {
+        startRecognitionSafe();
+        requestWakeLock();
+        document.removeEventListener('click', enableAudioAndMic);
+      };
+      document.addEventListener('click', enableAudioAndMic);
+
+      // Start listening directly
+      startRecognitionSafe();
+    });
+  </script>
+</body>
+</html>

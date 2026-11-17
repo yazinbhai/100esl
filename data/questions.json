@@ -1,0 +1,1157 @@
+[
+  {
+    "id": 1,
+    "question": "What is your name?",
+    "answer": "My name is Rahul.",
+    "category": "Self-Introduction",
+    "synonyms": [
+      "what is your name",
+      "what's your name",
+      "whats your name",
+      "who are you",
+      "your name",
+      "tell me your name"
+    ]
+  },
+  {
+    "id": 2,
+    "question": "How old are you?",
+    "answer": "I am ten years old.",
+    "category": "Self-Introduction",
+    "synonyms": [
+      "how old are you",
+      "what is your age",
+      "what's your age",
+      "whats your age",
+      "your age"
+    ]
+  },
+  {
+    "id": 3,
+    "question": "Where do you live?",
+    "answer": "I live in Kozhikode.",
+    "category": "Self-Introduction",
+    "synonyms": [
+      "where do you live",
+      "where are you living",
+      "what is your place",
+      "which place are you from",
+      "where is your home"
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Which class are you studying in?",
+    "answer": "I am studying in Class 5.",
+    "category": "Self-Introduction",
+    "synonyms": [
+      "which class are you studying in",
+      "which class are you studying",
+      "which class do you study",
+      "what class are you in",
+      "which standard are you in",
+      "which standard"
+    ]
+  },
+  {
+    "id": 5,
+    "question": "What is your mother tongue?",
+    "answer": "My mother tongue is Malayalam.",
+    "category": "Self-Introduction",
+    "synonyms": [
+      "what is your mother tongue",
+      "what's your mother tongue",
+      "mother tongue",
+      "which language do you speak at home",
+      "what is your language"
+    ]
+  },
+  {
+    "id": 6,
+    "question": "When is your birthday?",
+    "answer": "My birthday is in May.",
+    "category": "Self-Introduction",
+    "synonyms": [
+      "when is your birthday",
+      "what is your birthday",
+      "when were you born",
+      "which month is your birthday"
+    ]
+  },
+  {
+    "id": 7,
+    "question": "Are you a student?",
+    "answer": "Yes, I am a student.",
+    "category": "Self-Introduction",
+    "synonyms": [
+      "are you a student",
+      "are you studying",
+      "do you go to school"
+    ]
+  },
+  {
+    "id": 8,
+    "question": "Where were you born?",
+    "answer": "I was born in Thrissur.",
+    "category": "Self-Introduction",
+    "synonyms": [
+      "where were you born",
+      "what is your birthplace",
+      "which is your birthplace",
+      "where was your birth"
+    ]
+  },
+  {
+    "id": 9,
+    "question": "What is your father's name?",
+    "answer": "My father’s name is Suresh.",
+    "category": "Self-Introduction",
+    "synonyms": [
+      "what is your father's name",
+      "what is your fathers name",
+      "father's name",
+      "fathers name",
+      "what is your dad's name"
+    ]
+  },
+  {
+    "id": 10,
+    "question": "What is your mother's name?",
+    "answer": "My mother’s name is Lakshmi.",
+    "category": "Self-Introduction",
+    "synonyms": [
+      "what is your mother's name",
+      "what is your mothers name",
+      "mother's name",
+      "mothers name",
+      "what is your mom's name"
+    ]
+  },
+  {
+    "id": 11,
+    "question": "How many members are there in your family?",
+    "answer": "There are four members in my family.",
+    "category": "Family & Home",
+    "synonyms": [
+      "how many members are there in your family",
+      "how many people in your family",
+      "family members",
+      "how big is your family"
+    ]
+  },
+  {
+    "id": 12,
+    "question": "Do you have any brothers or sisters?",
+    "answer": "I have one elder sister.",
+    "category": "Family & Home",
+    "synonyms": [
+      "do you have any brothers or sisters",
+      "do you have siblings",
+      "have you any brothers or sisters",
+      "do you have brother or sister"
+    ]
+  },
+  {
+    "id": 13,
+    "question": "What does your father do?",
+    "answer": "My father is a teacher.",
+    "category": "Family & Home",
+    "synonyms": [
+      "what does your father do",
+      "what is your father's job",
+      "what is your fathers profession",
+      "what work does your father do"
+    ]
+  },
+  {
+    "id": 14,
+    "question": "What does your mother do?",
+    "answer": "My mother works in a bank.",
+    "category": "Family & Home",
+    "synonyms": [
+      "what does your mother do",
+      "what is your mother's job",
+      "what work does your mother do",
+      "where does your mother work"
+    ]
+  },
+  {
+    "id": 15,
+    "question": "Who lives with you at home?",
+    "answer": "My grandparents live with us.",
+    "category": "Family & Home",
+    "synonyms": [
+      "who lives with you at home",
+      "who lives with you",
+      "who stays with you"
+    ]
+  },
+  {
+    "id": 16,
+    "question": "Where does your family spend the evenings?",
+    "answer": "We sit together in the living room.",
+    "category": "Family & Home",
+    "synonyms": [
+      "where does your family spend the evenings",
+      "where do you spend evenings",
+      "where does your family sit in the evening"
+    ]
+  },
+  {
+    "id": 17,
+    "question": "Who cooks food in your house?",
+    "answer": "My mother cooks delicious food.",
+    "category": "Family & Home",
+    "synonyms": [
+      "who cooks food in your house",
+      "who cooks food",
+      "who makes food in your house",
+      "who cooks at home"
+    ]
+  },
+  {
+    "id": 18,
+    "question": "Do you have a garden at home?",
+    "answer": "We have a small vegetable garden in front of our house.",
+    "category": "Family & Home",
+    "synonyms": [
+      "do you have a garden at home",
+      "do you have a garden",
+      "is there a garden in your house"
+    ]
+  },
+  {
+    "id": 19,
+    "question": "What color is your house?",
+    "answer": "Our house is painted yellow.",
+    "category": "Family & Home",
+    "synonyms": [
+      "what color is your house",
+      "what is the colour of your house",
+      "house color",
+      "which color is your house"
+    ]
+  },
+  {
+    "id": 20,
+    "question": "Who helps you with your homework?",
+    "answer": "My elder brother helps me with my homework.",
+    "category": "Family & Home",
+    "synonyms": [
+      "who helps you with your homework",
+      "who helps with homework",
+      "who teaches you homework"
+    ]
+  },
+  {
+    "id": 21,
+    "question": "What is the name of your school?",
+    "answer": "The name of my school is Government Model High School.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "what is the name of your school",
+      "what's your school name",
+      "school name",
+      "which school do you go to",
+      "where do you study"
+    ]
+  },
+  {
+    "id": 22,
+    "question": "How do you go to school?",
+    "answer": "I go to school by bus.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "how do you go to school",
+      "how do you reach school",
+      "how do you travel to school",
+      "do you go by bus or walk"
+    ]
+  },
+  {
+    "id": 23,
+    "question": "Who is your class teacher?",
+    "answer": "Mrs. Mini is our class teacher.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "who is your class teacher",
+      "class teacher name",
+      "who is your teacher"
+    ]
+  },
+  {
+    "id": 24,
+    "question": "What is your favorite subject?",
+    "answer": "My favorite subject is English.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "what is your favorite subject",
+      "what is your favourite subject",
+      "favorite subject",
+      "which subject do you like"
+    ]
+  },
+  {
+    "id": 25,
+    "question": "What is in your school bag?",
+    "answer": "There are books, notebooks, and a pencil box in my bag.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "what is in your school bag",
+      "what is inside your school bag",
+      "what do you have in your bag",
+      "what is in your bag"
+    ]
+  },
+  {
+    "id": 26,
+    "question": "Where is the blackboard?",
+    "answer": "The blackboard is on the front wall.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "where is the blackboard",
+      "where is the board",
+      "blackboard location"
+    ]
+  },
+  {
+    "id": 27,
+    "question": "What color is your school uniform?",
+    "answer": "My school uniform is blue and white.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "what color is your school uniform",
+      "uniform color",
+      "what is the colour of your uniform"
+    ]
+  },
+  {
+    "id": 28,
+    "question": "Who is your best friend in school?",
+    "answer": "Anoop is my best friend in school.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "who is your best friend in school",
+      "who is your best friend",
+      "best friend name"
+    ]
+  },
+  {
+    "id": 29,
+    "question": "Where do students play during recess?",
+    "answer": "Students play in the school playground.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "where do students play during recess",
+      "where do you play during interval",
+      "where do children play at break time",
+      "playground"
+    ]
+  },
+  {
+    "id": 30,
+    "question": "What time does the school assembly begin?",
+    "answer": "The school assembly begins at nine in the morning.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "what time does the school assembly begin",
+      "when is the school assembly",
+      "assembly time",
+      "when does assembly start"
+    ]
+  },
+  {
+    "id": 31,
+    "question": "How many benches are there in your classroom?",
+    "answer": "There are twenty benches in our classroom.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "how many benches are there in your classroom",
+      "how many benches in classroom",
+      "number of benches"
+    ]
+  },
+  {
+    "id": 32,
+    "question": "Where do you keep your water bottle?",
+    "answer": "I keep my water bottle on the desk.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "where do you keep your water bottle",
+      "where is your water bottle",
+      "water bottle location"
+    ]
+  },
+  {
+    "id": 33,
+    "question": "Who rings the school bell?",
+    "answer": "The peon rings the school bell.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "who rings the school bell",
+      "who rings the bell",
+      "school bell"
+    ]
+  },
+  {
+    "id": 34,
+    "question": "Where do you borrow storybooks from?",
+    "answer": "I borrow storybooks from the school library.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "where do you borrow storybooks from",
+      "where do you get story books",
+      "where is the library",
+      "where do you borrow books"
+    ]
+  },
+  {
+    "id": 35,
+    "question": "What do you write with?",
+    "answer": "I write with a blue ballpoint pen.",
+    "category": "School & Classroom",
+    "synonyms": [
+      "what do you write with",
+      "what do you use to write",
+      "do you write with pen or pencil"
+    ]
+  },
+  {
+    "id": 36,
+    "question": "What time do you wake up in the morning?",
+    "answer": "I wake up at six o'clock every morning.",
+    "category": "Daily Routine & Time",
+    "synonyms": [
+      "what time do you wake up in the morning",
+      "what time do you wake up",
+      "when do you wake up",
+      "wake up time"
+    ]
+  },
+  {
+    "id": 37,
+    "question": "What do you do after waking up?",
+    "answer": "I brush my teeth and wash my face.",
+    "category": "Daily Routine & Time",
+    "synonyms": [
+      "what do you do after waking up",
+      "what do you do in the morning",
+      "first thing you do in morning"
+    ]
+  },
+  {
+    "id": 38,
+    "question": "When do you leave for school?",
+    "answer": "I leave for school at eight-thirty.",
+    "category": "Daily Routine & Time",
+    "synonyms": [
+      "when do you leave for school",
+      "what time do you leave for school",
+      "when do you go to school"
+    ]
+  },
+  {
+    "id": 39,
+    "question": "What time does your school end?",
+    "answer": "School ends at three-thirty in the afternoon.",
+    "category": "Daily Routine & Time",
+    "synonyms": [
+      "what time does your school end",
+      "when does school close",
+      "what time is school over",
+      "closing time"
+    ]
+  },
+  {
+    "id": 40,
+    "question": "What do you do in the evening?",
+    "answer": "I play football with my neighbors in the evening.",
+    "category": "Daily Routine & Time",
+    "synonyms": [
+      "what do you do in the evening",
+      "evening activities",
+      "how do you spend evening"
+    ]
+  },
+  {
+    "id": 41,
+    "question": "When do you do your homework?",
+    "answer": "I do my homework after having tea.",
+    "category": "Daily Routine & Time",
+    "synonyms": [
+      "when do you do your homework",
+      "homework time",
+      "what time do you study at home"
+    ]
+  },
+  {
+    "id": 42,
+    "question": "What time does your family have dinner?",
+    "answer": "We have dinner at eight o'clock at night.",
+    "category": "Daily Routine & Time",
+    "synonyms": [
+      "what time does your family have dinner",
+      "dinner time",
+      "when do you eat dinner"
+    ]
+  },
+  {
+    "id": 43,
+    "question": "What time do you go to bed?",
+    "answer": "I go to bed at nine-thirty.",
+    "category": "Daily Routine & Time",
+    "synonyms": [
+      "what time do you go to bed",
+      "bedtime",
+      "when do you sleep"
+    ]
+  },
+  {
+    "id": 44,
+    "question": "Do you read books before sleeping?",
+    "answer": "I read a short story before going to sleep.",
+    "category": "Daily Routine & Time",
+    "synonyms": [
+      "do you read books before sleeping",
+      "do you read before bed",
+      "reading before sleeping"
+    ]
+  },
+  {
+    "id": 45,
+    "question": "What do you do on Sunday mornings?",
+    "answer": "I help my parents clean the house on Sundays.",
+    "category": "Daily Routine & Time",
+    "synonyms": [
+      "what do you do on Sunday mornings",
+      "sunday routine",
+      "what do you do on sunday"
+    ]
+  },
+  {
+    "id": 46,
+    "question": "What did you eat for breakfast today?",
+    "answer": "I ate appam and vegetable stew for breakfast.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "what did you eat for breakfast today",
+      "what did you have for breakfast",
+      "breakfast today",
+      "what is your breakfast"
+    ]
+  },
+  {
+    "id": 47,
+    "question": "What is in your lunch box today?",
+    "answer": "I have rice, sambar, and avial in my lunch box.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "what is in your lunch box today",
+      "what is in your lunchbox",
+      "lunch box today",
+      "what did you bring for lunch"
+    ]
+  },
+  {
+    "id": 48,
+    "question": "What is your favorite snack?",
+    "answer": "My favorite snack is crisp banana chips.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "what is your favorite snack",
+      "favourite snack",
+      "banana chips",
+      "which snack do you like"
+    ]
+  },
+  {
+    "id": 49,
+    "question": "What fruit grows abundantly in Kerala?",
+    "answer": "Mangoes and jackfruits grow abundantly in Kerala.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "what fruit grows abundantly in Kerala",
+      "fruits of kerala",
+      "jackfruit and mango",
+      "common fruit in kerala"
+    ]
+  },
+  {
+    "id": 50,
+    "question": "What do you like to drink after school?",
+    "answer": "I like to drink a warm glass of milk.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "what do you like to drink after school",
+      "drink after school",
+      "what do you drink in the evening"
+    ]
+  },
+  {
+    "id": 51,
+    "question": "What sweet dish is made during Onam?",
+    "answer": "Payasam is prepared during Onam.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "what sweet dish is made during Onam",
+      "onam sweet",
+      "payasam",
+      "which sweet for onam"
+    ]
+  },
+  {
+    "id": 52,
+    "question": "Do you like eating ripe bananas?",
+    "answer": "Yes, I love eating sweet yellow bananas.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "do you like eating ripe bananas",
+      "do you like bananas",
+      "ripe bananas"
+    ]
+  },
+  {
+    "id": 53,
+    "question": "Which hot beverage is popular in tea stalls?",
+    "answer": "Hot cardamom tea is very popular in local tea shops.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "which hot beverage is popular in tea stalls",
+      "tea stall drink",
+      "popular drink in tea shops",
+      "chai"
+    ]
+  },
+  {
+    "id": 54,
+    "question": "What do people eat with steamed puttu?",
+    "answer": "People eat puttu with spicy kadala curry or ripe bananas.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "what do people eat with steamed puttu",
+      "what to eat with puttu",
+      "puttu combination",
+      "kadala curry"
+    ]
+  },
+  {
+    "id": 55,
+    "question": "Why should we drink tender coconut water?",
+    "answer": "Tender coconut water keeps us cool and refreshed.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "why should we drink tender coconut water",
+      "benefits of tender coconut",
+      "why drink coconut water",
+      "elaneer"
+    ]
+  },
+  {
+    "id": 56,
+    "question": "Do you like curd rice?",
+    "answer": "Yes, I enjoy curd rice with lemon pickle.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "do you like curd rice",
+      "curd rice",
+      "do you eat curd rice"
+    ]
+  },
+  {
+    "id": 57,
+    "question": "What is the traditional leaf used for serving Onam feast?",
+    "answer": "The Onam feast is served on a fresh plantain leaf.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "what is the traditional leaf used for serving Onam feast",
+      "banana leaf feast",
+      "plantain leaf",
+      "sadya leaf"
+    ]
+  },
+  {
+    "id": 58,
+    "question": "Are green vegetables good for health?",
+    "answer": "Green vegetables are very good for our health.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "are green vegetables good for health",
+      "why eat vegetables",
+      "vegetables good for health"
+    ]
+  },
+  {
+    "id": 59,
+    "question": "What do you drink when you are thirsty?",
+    "answer": "I drink boiled cumin water when I am thirsty.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "what do you drink when you are thirsty",
+      "drinking water",
+      "jeera water",
+      "boiled water"
+    ]
+  },
+  {
+    "id": 60,
+    "question": "Can you make tea by yourself?",
+    "answer": "Yes, I know how to make tea.",
+    "category": "Food & Drinks",
+    "synonyms": [
+      "can you make tea by yourself",
+      "can you make tea",
+      "do you know how to make tea"
+    ]
+  },
+  {
+    "id": 61,
+    "question": "What tree is known as the symbol of Kerala?",
+    "answer": "The coconut tree is the symbol of Kerala.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "what tree is known as the symbol of Kerala",
+      "symbol of kerala tree",
+      "state tree of kerala",
+      "coconut tree"
+    ]
+  },
+  {
+    "id": 62,
+    "question": "Which is the longest river in Kerala?",
+    "answer": "The Periyar is the longest river in Kerala.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "which is the longest river in Kerala",
+      "longest river in kerala",
+      "periyar river"
+    ]
+  },
+  {
+    "id": 63,
+    "question": "What is the capital of Kerala?",
+    "answer": "Thiruvananthapuram is the capital of Kerala.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "what is the capital of Kerala",
+      "capital of kerala",
+      "trivandrum"
+    ]
+  },
+  {
+    "id": 64,
+    "question": "Why do we carry an umbrella in June?",
+    "answer": "We carry an umbrella because it rains heavily during the monsoon.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "why do we carry an umbrella in June",
+      "why carry umbrella",
+      "monsoon rain in june",
+      "umbrella in june"
+    ]
+  },
+  {
+    "id": 65,
+    "question": "Where do people go to see tea plantations in Kerala?",
+    "answer": "People travel to Munnar to see tea plantations.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "where do people go to see tea plantations in Kerala",
+      "tea plantations in kerala",
+      "munnar tea gardens"
+    ]
+  },
+  {
+    "id": 66,
+    "question": "What is Alappuzha famous for?",
+    "answer": "Alappuzha is famous for its backwaters and houseboats.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "what is Alappuzha famous for",
+      "what is alleppey famous for",
+      "alappuzha backwaters",
+      "houseboats"
+    ]
+  },
+  {
+    "id": 67,
+    "question": "How is the weather during April in Kerala?",
+    "answer": "The weather is hot and humid during April.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "how is the weather during April in Kerala",
+      "april weather in kerala",
+      "summer in kerala"
+    ]
+  },
+  {
+    "id": 68,
+    "question": "What happens to the paddy fields after rain?",
+    "answer": "The paddy fields look lush and green after the rain.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "what happens to the paddy fields after rain",
+      "paddy fields after rain",
+      "green paddy fields"
+    ]
+  },
+  {
+    "id": 69,
+    "question": "Which state festival is celebrated with flower carpets?",
+    "answer": "Onam is celebrated with colorful flower carpets.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "which state festival is celebrated with flower carpets",
+      "festival with flower carpets",
+      "pookkalam festival",
+      "onam"
+    ]
+  },
+  {
+    "id": 70,
+    "question": "What boat race is held in the backwaters?",
+    "answer": "The Nehru Trophy Boat Race is held in Punnamada Lake.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "what boat race is held in the backwaters",
+      "boat race in kerala",
+      "nehru trophy boat race",
+      "vallam kali"
+    ]
+  },
+  {
+    "id": 71,
+    "question": "What hills are found on the eastern side of Kerala?",
+    "answer": "The Western Ghats line the eastern side of Kerala.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "what hills are found on the eastern side of Kerala",
+      "eastern hills of kerala",
+      "western ghats",
+      "sahya mountains"
+    ]
+  },
+  {
+    "id": 72,
+    "question": "Where can we see sea waves in Kozhikode?",
+    "answer": "We can see sea waves at Kozhikode beach.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "where can we see sea waves in Kozhikode",
+      "kozhikode beach",
+      "calicut beach"
+    ]
+  },
+  {
+    "id": 73,
+    "question": "Why do rivers fill up quickly in July?",
+    "answer": "Rivers fill up quickly due to continuous monsoon showers.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "why do rivers fill up quickly in July",
+      "rivers in july",
+      "monsoon flooding"
+    ]
+  },
+  {
+    "id": 74,
+    "question": "What bird is the official state bird of Kerala?",
+    "answer": "The Great Indian Hornbill is the state bird of Kerala.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "what bird is the official state bird of Kerala",
+      "state bird of kerala",
+      "hornbill"
+    ]
+  },
+  {
+    "id": 75,
+    "question": "What animal is the state animal of Kerala?",
+    "answer": "The Indian elephant is the state animal of Kerala.",
+    "category": "Kerala Nature & Places",
+    "synonyms": [
+      "what animal is the state animal of Kerala",
+      "state animal of kerala",
+      "elephant"
+    ]
+  },
+  {
+    "id": 76,
+    "question": "Do you have a pet at home?",
+    "answer": "I have a playful puppy named Tommy.",
+    "category": "Animals & Birds",
+    "synonyms": [
+      "do you have a pet at home",
+      "do you have a pet",
+      "pet dog",
+      "my pet"
+    ]
+  },
+  {
+    "id": 77,
+    "question": "What does a cow give us?",
+    "answer": "A cow gives us fresh milk.",
+    "category": "Animals & Birds",
+    "synonyms": [
+      "what does a cow give us",
+      "what does cow give",
+      "cow milk"
+    ]
+  },
+  {
+    "id": 78,
+    "question": "Where do crows build their nests?",
+    "answer": "Crows build their nests high on tree branches.",
+    "category": "Animals & Birds",
+    "synonyms": [
+      "where do crows build their nests",
+      "crow nest",
+      "where do crows live"
+    ]
+  },
+  {
+    "id": 79,
+    "question": "What is the color of a parrot?",
+    "answer": "A parrot has bright green feathers and a red beak.",
+    "category": "Animals & Birds",
+    "synonyms": [
+      "what is the color of a parrot",
+      "parrot color",
+      "colour of a parrot"
+    ]
+  },
+  {
+    "id": 80,
+    "question": "What does the cat drink?",
+    "answer": "The cat drinks warm milk from a small bowl.",
+    "category": "Animals & Birds",
+    "synonyms": [
+      "what does the cat drink",
+      "what do cats drink",
+      "cat milk"
+    ]
+  },
+  {
+    "id": 81,
+    "question": "Where do fish live?",
+    "answer": "Fish live and swim in water.",
+    "category": "Animals & Birds",
+    "synonyms": [
+      "where do fish live",
+      "fish habitat",
+      "where does fish stay"
+    ]
+  },
+  {
+    "id": 82,
+    "question": "What do ducks do in the village pond?",
+    "answer": "Ducks swim smoothly across the village pond.",
+    "category": "Animals & Birds",
+    "synonyms": [
+      "what do ducks do in the village pond",
+      "ducks in the pond",
+      "ducks swimming"
+    ]
+  },
+  {
+    "id": 83,
+    "question": "Why do birds sing in the morning?",
+    "answer": "Birds sing to welcome the sunrise.",
+    "category": "Animals & Birds",
+    "synonyms": [
+      "why do birds sing in the morning",
+      "birds singing",
+      "morning birds"
+    ]
+  },
+  {
+    "id": 84,
+    "question": "Which small animal scampers along coconut tree trunks?",
+    "answer": "Striped squirrels scamper along coconut tree trunks.",
+    "category": "Animals & Birds",
+    "synonyms": [
+      "which small animal scampers along coconut tree trunks",
+      "squirrel on coconut tree",
+      "small animal on tree"
+    ]
+  },
+  {
+    "id": 85,
+    "question": "How does an elephant walk?",
+    "answer": "An elephant walks with heavy, slow steps.",
+    "category": "Animals & Birds",
+    "synonyms": [
+      "how does an elephant walk",
+      "elephant walking",
+      "slow steps"
+    ]
+  },
+  {
+    "id": 86,
+    "question": "What color is the clear sky?",
+    "answer": "The clear sky is bright blue.",
+    "category": "Colors & Objects",
+    "synonyms": [
+      "what color is the clear sky",
+      "sky color",
+      "colour of the sky"
+    ]
+  },
+  {
+    "id": 87,
+    "question": "What color is ripe mango peel?",
+    "answer": "Ripe mango peel is golden yellow.",
+    "category": "Colors & Objects",
+    "synonyms": [
+      "what color is ripe mango peel",
+      "mango color",
+      "colour of ripe mango"
+    ]
+  },
+  {
+    "id": 88,
+    "question": "What shape is a football?",
+    "answer": "A football is round in shape.",
+    "category": "Colors & Objects",
+    "synonyms": [
+      "what shape is a football",
+      "football shape",
+      "is football round"
+    ]
+  },
+  {
+    "id": 89,
+    "question": "Where is the wall clock placed?",
+    "answer": "The wall clock hangs above the classroom door.",
+    "category": "Colors & Objects",
+    "synonyms": [
+      "where is the wall clock placed",
+      "wall clock",
+      "where is the clock"
+    ]
+  },
+  {
+    "id": 90,
+    "question": "What do we use to cut paper?",
+    "answer": "We use scissors to cut paper neatly.",
+    "category": "Colors & Objects",
+    "synonyms": [
+      "what do we use to cut paper",
+      "how to cut paper",
+      "scissors"
+    ]
+  },
+  {
+    "id": 91,
+    "question": "What color is fresh grass?",
+    "answer": "Fresh grass is bright green.",
+    "category": "Colors & Objects",
+    "synonyms": [
+      "what color is fresh grass",
+      "grass color",
+      "colour of grass"
+    ]
+  },
+  {
+    "id": 92,
+    "question": "What provides light during the daytime?",
+    "answer": "The sun provides natural light during the daytime.",
+    "category": "Colors & Objects",
+    "synonyms": [
+      "what provides light during the daytime",
+      "daylight source",
+      "sun light"
+    ]
+  },
+  {
+    "id": 93,
+    "question": "What is your favorite hobby?",
+    "answer": "My favorite hobby is drawing pictures.",
+    "category": "Hobbies & Feelings",
+    "synonyms": [
+      "what is your favorite hobby",
+      "favourite hobby",
+      "what is your hobby",
+      "what do you do for fun"
+    ]
+  },
+  {
+    "id": 94,
+    "question": "What outdoor game do you like to play?",
+    "answer": "I love playing football with my classmates.",
+    "category": "Hobbies & Feelings",
+    "synonyms": [
+      "what outdoor game do you like to play",
+      "outdoor game",
+      "favorite game",
+      "which game do you like"
+    ]
+  },
+  {
+    "id": 95,
+    "question": "How do you feel when you receive a prize?",
+    "answer": "I feel proud and happy when I win a prize.",
+    "category": "Hobbies & Feelings",
+    "synonyms": [
+      "how do you feel when you receive a prize",
+      "winning a prize",
+      "feeling when you get a prize"
+    ]
+  },
+  {
+    "id": 96,
+    "question": "What do you say when someone gives you a gift?",
+    "answer": "I say Thank you very much.",
+    "category": "Hobbies & Feelings",
+    "synonyms": [
+      "what do you say when someone gives you a gift",
+      "when someone gives a gift",
+      "thank you"
+    ]
+  },
+  {
+    "id": 97,
+    "question": "What do you say when you make a mistake?",
+    "answer": "I say I am sorry.",
+    "category": "Hobbies & Feelings",
+    "synonyms": [
+      "what do you say when you make a mistake",
+      "making a mistake",
+      "i am sorry"
+    ]
+  },
+  {
+    "id": 98,
+    "question": "Why do you like storybooks?",
+    "answer": "I like storybooks because they have colorful illustrations.",
+    "category": "Hobbies & Feelings",
+    "synonyms": [
+      "why do you like storybooks",
+      "why do you read storybooks",
+      "pictures in story books"
+    ]
+  },
+  {
+    "id": 99,
+    "question": "Are you tired after sports day?",
+    "answer": "Yes, I am tired but very happy after sports day.",
+    "category": "Hobbies & Feelings",
+    "synonyms": [
+      "are you tired after sports day",
+      "tired after sports",
+      "sports day"
+    ]
+  },
+  {
+    "id": 100,
+    "question": "What do you want to become when you grow up?",
+    "answer": "I want to become a doctor to help people.",
+    "category": "Hobbies & Feelings",
+    "synonyms": [
+      "what do you want to become when you grow up",
+      "ambition in life",
+      "future goal",
+      "what is your aim in life",
+      "what do you want to be"
+    ]
+  }
+]
