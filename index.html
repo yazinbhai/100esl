@@ -41,7 +41,7 @@
 
     /* Top Kiosk Header */
     header {
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(10px);
       border-bottom: 2px solid rgba(244, 208, 111, 0.3);
       padding: 12px 24px;
@@ -71,7 +71,7 @@
 
     .brand-title h1 {
       font-family: var(--font-display);
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       color: var(--gold);
       letter-spacing: 0.5px;
     }
@@ -131,7 +131,7 @@
       display: grid;
       grid-template-columns: 1fr 380px;
       gap: 20px;
-      padding: 24px;
+      padding: 20px;
       max-width: 1400px;
       margin: 0 auto;
       width: 100%;
@@ -140,6 +140,7 @@
     @media (max-width: 1024px) {
       main {
         grid-template-columns: 1fr;
+        padding: 14px;
       }
     }
 
@@ -149,7 +150,7 @@
       border: 2px solid rgba(255, 255, 255, 0.1);
       border-radius: 28px;
       backdrop-filter: blur(12px);
-      padding: 30px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -159,7 +160,6 @@
       overflow: hidden;
     }
 
-    /* Glowing decorative aura */
     .statue-stage::before {
       content: '';
       position: absolute;
@@ -180,46 +180,29 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 10px 0;
+      margin: 4px 0;
     }
 
     .statue-svg {
-      width: 240px;
-      height: 240px;
+      width: 250px;
+      height: 250px;
       filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
       transition: transform 0.3s ease;
     }
 
-    /* Mouth animation */
-    .mouth-open {
-      display: none;
-    }
-    .speaking .mouth-closed {
-      display: none;
-    }
-    .speaking .mouth-open {
-      display: block;
-      animation: mouthTalk 0.25s infinite alternate ease-in-out;
+    .speaking .statue-svg {
+      animation: headBob 0.6s infinite ease-in-out;
     }
 
-    @keyframes mouthTalk {
-      from { transform: scaleY(0.7); }
-      to { transform: scaleY(1.3); }
+    @keyframes headBob {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-3px) rotate(0.5deg); }
     }
 
     /* Eye Blink */
-    .eye-pupil {
-      transition: transform 0.2s;
-    }
-    .blinking .eye-open {
-      display: none;
-    }
-    .blinking .eye-closed {
-      display: block;
-    }
-    .eye-closed {
-      display: none;
-    }
+    .eye-closed { display: none; }
+    .blinking .eye-open { display: none; }
+    .blinking .eye-closed { display: block; }
 
     /* Listening Aura Wave */
     .sound-waves {
@@ -227,8 +210,8 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      height: 32px;
-      margin-top: 12px;
+      height: 28px;
+      margin-top: 10px;
     }
 
     .wave-bar {
@@ -252,15 +235,15 @@
 
     @keyframes waveDance {
       0%, 100% { height: 8px; }
-      50% { height: 32px; }
+      50% { height: 28px; }
     }
 
     /* Statue State Banner */
     .statue-state-badge {
-      margin-top: 10px;
+      margin-top: 8px;
       padding: 6px 20px;
       border-radius: 20px;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-family: var(--font-display);
       font-weight: 700;
       letter-spacing: 0.5px;
@@ -294,7 +277,7 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
-      margin-top: 20px;
+      margin-top: 16px;
     }
 
     .speech-box {
@@ -304,7 +287,6 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
-    /* Student Box */
     .student-box {
       background: rgba(255, 255, 255, 0.12);
       border-left: 6px solid var(--accent-teal);
@@ -329,7 +311,6 @@
       min-height: 32px;
     }
 
-    /* Statue Answer Box */
     .statue-box {
       background: #ffffff;
       color: var(--text-dark);
@@ -419,7 +400,6 @@
       border-color: #0d3b66;
     }
 
-    /* Question list container */
     .questions-list {
       flex: 1;
       overflow-y: auto;
@@ -430,10 +410,7 @@
       gap: 10px;
     }
 
-    /* Custom scrollbar */
-    .questions-list::-webkit-scrollbar {
-      width: 6px;
-    }
+    .questions-list::-webkit-scrollbar { width: 6px; }
     .questions-list::-webkit-scrollbar-thumb {
       background: #ced4da;
       border-radius: 3px;
@@ -496,11 +473,9 @@
       gap: 4px;
     }
 
-    .test-btn:hover {
-      background: #cbd5e1;
-    }
+    .test-btn:hover { background: #cbd5e1; }
 
-    /* Kiosk Footer Controls */
+    /* Kiosk Footer */
     footer {
       background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(8px);
@@ -519,10 +494,7 @@
       color: #94a3b8;
     }
 
-    .footer-actions {
-      display: flex;
-      gap: 10px;
-    }
+    .footer-actions { display: flex; gap: 10px; }
 
     .btn {
       padding: 8px 18px;
@@ -590,76 +562,104 @@
   <main>
     <!-- Left: Talking Statue & Live Transcript -->
     <section class="statue-stage" id="stageContainer">
-      
-      <!-- Statue Mascot (Animated SVG) -->
+
+      <!-- High-Quality Anatomical Talking Mascot SVG -->
       <div class="mascot-container" id="mascotWrapper">
-        <svg class="statue-svg" id="statueSvg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <svg class="statue-svg" id="statueSvg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
           <!-- Aura Background -->
-          <circle cx="100" cy="100" r="90" fill="#f4d06f" opacity="0.15" />
-          
-          <!-- Traditional Kerala Crown / Headgear (Kireedam Style Stylized) -->
-          <path d="M70 55 L100 20 L130 55 L120 65 L80 65 Z" fill="#d4a327" stroke="#b48215" stroke-width="2"/>
-          <circle cx="100" cy="35" r="5" fill="#ee6c4d" />
-          <polygon points="100,22 103,28 100,34 97,28" fill="#fff"/>
+          <circle cx="120" cy="120" r="110" fill="#f4d06f" opacity="0.12" />
 
-          <!-- Statue Head (Golden Bronze Hue) -->
-          <ellipse cx="100" cy="105" rx="55" ry="60" fill="#f9c74f" stroke="#d4a327" stroke-width="3" />
+          <!-- Kerala Traditional Kasavu Shoulders -->
+          <path d="M38 180 Q120 210 202 180 L220 240 L20 240 Z" fill="#fdfbf7" stroke="#d4a327" stroke-width="2"/>
+          <path d="M38 180 Q120 210 202 180" fill="none" stroke="#d4a327" stroke-width="7"/>
 
-          <!-- Kerala Traditional Kasavu Shawl / Shoulders -->
-          <path d="M48 155 Q100 185 152 155 L170 200 L30 200 Z" fill="#e9ecef" stroke="#d4a327" stroke-width="2"/>
-          <!-- Golden border of Kasavu -->
-          <path d="M48 155 Q100 185 152 155" fill="none" stroke="#d4a327" stroke-width="6"/>
-
-          <!-- Tilak / Chandanam Mark on Forehead -->
-          <path d="M96 75 Q100 70 104 75 L100 82 Z" fill="#ee6c4d"/>
-          <line x1="88" y1="78" x2="112" y2="78" stroke="#ffffff" stroke-width="2"/>
-
-          <!-- Ears with Kerala Kundalam Ornaments -->
-          <circle cx="44" cy="105" r="12" fill="#f9c74f" stroke="#d4a327" stroke-width="2"/>
-          <circle cx="42" cy="118" r="6" fill="#d4a327"/>
-          <circle cx="156" cy="105" r="12" fill="#f9c74f" stroke="#d4a327" stroke-width="2"/>
-          <circle cx="158" cy="118" r="6" fill="#d4a327"/>
-
-          <!-- Eyebrows -->
-          <path d="M72 88 Q85 82 94 88" fill="none" stroke="#6c584c" stroke-width="3" stroke-linecap="round"/>
-          <path d="M106 88 Q115 82 128 88" fill="none" stroke="#6c584c" stroke-width="3" stroke-linecap="round"/>
-
-          <!-- Eyes (Open State) -->
-          <g class="eye-open" id="eyesOpen">
-            <!-- Left Eye -->
-            <ellipse cx="83" cy="98" rx="10" ry="7" fill="#ffffff" stroke="#6c584c" stroke-width="1.5"/>
-            <circle class="eye-pupil" cx="83" cy="98" r="4.5" fill="#2b2d42"/>
-            <circle cx="85" cy="96" r="1.5" fill="#ffffff"/>
-
-            <!-- Right Eye -->
-            <ellipse cx="117" cy="98" rx="10" ry="7" fill="#ffffff" stroke="#6c584c" stroke-width="1.5"/>
-            <circle class="eye-pupil" cx="117" cy="98" r="4.5" fill="#2b2d42"/>
-            <circle cx="119" cy="96" r="1.5" fill="#ffffff"/>
+          <!-- Traditional Kerala Golden Crown / Kireedam -->
+          <g id="crown">
+            <!-- Crown Base band -->
+            <path d="M78 68 Q120 58 162 68 L158 80 Q120 70 82 80 Z" fill="#d4a327" stroke="#b48215" stroke-width="2"/>
+            <!-- Crown Tiers -->
+            <path d="M86 64 L120 18 L154 64 Z" fill="#f4d06f" stroke="#d4a327" stroke-width="2"/>
+            <!-- Crown Jewels -->
+            <circle cx="120" cy="38" r="7" fill="#ee6c4d" stroke="#b48215" stroke-width="1.5"/>
+            <polygon points="120,24 123,30 120,36 117,30" fill="#ffffff"/>
+            <circle cx="102" cy="54" r="4" fill="#2d6a4f"/>
+            <circle cx="138" cy="54" r="4" fill="#2d6a4f"/>
           </g>
 
-          <!-- Eyes (Blinking/Closed State) -->
-          <g class="eye-closed" id="eyesClosed">
-            <path d="M73 98 Q83 105 93 98" fill="none" stroke="#6c584c" stroke-width="3" stroke-linecap="round"/>
-            <path d="M107 98 Q117 105 127 98" fill="none" stroke="#6c584c" stroke-width="3" stroke-linecap="round"/>
+          <!-- Head & Ears Group -->
+          <g id="headGroup">
+            <!-- Ears with Golden Kundalam -->
+            <circle cx="56" cy="122" r="14" fill="#f6c445" stroke="#d4a327" stroke-width="2.5"/>
+            <circle cx="53" cy="138" r="7" fill="#d4a327"/>
+            <circle cx="184" cy="122" r="14" fill="#f6c445" stroke="#d4a327" stroke-width="2.5"/>
+            <circle cx="187" cy="138" r="7" fill="#d4a327"/>
+
+            <!-- Main Head Face (Warm Golden Bronze) -->
+            <ellipse cx="120" cy="122" rx="64" ry="58" fill="#f6c445" stroke="#d4a327" stroke-width="3.5" />
+
+            <!-- Forehead Sandalwood (Chandanam) & Tilak -->
+            <path d="M104 88 Q120 91 136 88" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="120" cy="84" r="3.5" fill="#ee6c4d"/>
+
+            <!-- Eyebrows -->
+            <path d="M84 98 Q98 90 108 97" fill="none" stroke="#5a3d28" stroke-width="3" stroke-linecap="round"/>
+            <path d="M132 97 Q142 90 156 98" fill="none" stroke="#5a3d28" stroke-width="3" stroke-linecap="round"/>
+
+            <!-- Eyes (Open State) -->
+            <g class="eye-open" id="eyesOpen">
+              <ellipse cx="96" cy="108" rx="10.5" ry="7.5" fill="#ffffff" stroke="#5a3d28" stroke-width="1.5"/>
+              <circle cx="96" cy="108" r="4.8" fill="#1e293b"/>
+              <circle cx="98" cy="106" r="1.6" fill="#ffffff"/>
+
+              <ellipse cx="144" cy="108" rx="10.5" ry="7.5" fill="#ffffff" stroke="#5a3d28" stroke-width="1.5"/>
+              <circle cx="144" cy="108" r="4.8" fill="#1e293b"/>
+              <circle cx="146" cy="106" r="1.6" fill="#ffffff"/>
+            </g>
+
+            <!-- Eyes (Blinking/Closed State) -->
+            <g class="eye-closed" id="eyesClosed">
+              <path d="M86 109 Q96 116 106 109" fill="none" stroke="#5a3d28" stroke-width="3" stroke-linecap="round"/>
+              <path d="M134 109 Q144 116 154 109" fill="none" stroke="#5a3d28" stroke-width="3" stroke-linecap="round"/>
+            </g>
+
+            <!-- Soft Blush Cheeks -->
+            <ellipse cx="78" cy="126" rx="9" ry="5" fill="#ee6c4d" opacity="0.32"/>
+            <ellipse cx="162" cy="126" rx="9" ry="5" fill="#ee6c4d" opacity="0.32"/>
+
+            <!-- Cute Subtle Nose (Cleanly Separated) -->
+            <path d="M120 114 Q117 124 122 125" fill="none" stroke="#b48215" stroke-width="2.2" stroke-linecap="round"/>
           </g>
 
-          <!-- Friendly Smile Nose -->
-          <path d="M100 96 L97 114 L103 114" fill="none" stroke="#b48215" stroke-width="2" stroke-linecap="round"/>
+          <!-- Dynamic Jaw & Viseme LipSync Group -->
+          <g id="jawGroup" style="transition: transform 0.08s ease;">
+            <!-- VISEME 1: CLOSED SMILE (Default Idle) -->
+            <path id="viseme-closed" d="M106 146 Q120 155 134 146" fill="none" stroke="#99281e" stroke-width="3.5" stroke-linecap="round"/>
 
-          <!-- Rosy Cheeks -->
-          <ellipse cx="68" cy="115" rx="8" ry="4" fill="#ee6c4d" opacity="0.3"/>
-          <ellipse cx="132" cy="115" rx="8" ry="4" fill="#ee6c4d" opacity="0.3"/>
+            <!-- VISEME 2: OPEN "AH" (Wide open for A/Ah vowels) -->
+            <g id="viseme-ah" style="display:none;">
+              <path d="M105 142 Q120 137 135 142 Q137 163 120 163 Q103 163 105 142 Z" fill="#6d1a12" stroke="#4a100b" stroke-width="2"/>
+              <!-- Upper White Teeth -->
+              <path d="M109 142 Q120 144 131 142 L131 146 Q120 148 109 146 Z" fill="#ffffff"/>
+              <!-- Tongue -->
+              <path d="M112 156 Q120 152 128 156 Q120 163 112 156 Z" fill="#ee6c4d"/>
+            </g>
 
-          <!-- Mouth (Closed Smile) -->
-          <path class="mouth-closed" id="mouthClosed" d="M84 128 Q100 144 116 128" fill="none" stroke="#a03020" stroke-width="4" stroke-linecap="round"/>
+            <!-- VISEME 3: OPEN "OH" (Rounded for O/U/W vowels) -->
+            <g id="viseme-oh" style="display:none;">
+              <ellipse cx="120" cy="150" rx="9.5" ry="12" fill="#6d1a12" stroke="#4a100b" stroke-width="2"/>
+              <ellipse cx="120" cy="156" rx="6" ry="4" fill="#ee6c4d"/>
+            </g>
 
-          <!-- Mouth (Open / Speaking Smile) -->
-          <g class="mouth-open" id="mouthOpen">
-            <ellipse cx="100" cy="133" rx="14" ry="10" fill="#a03020" stroke="#7a1f12" stroke-width="2"/>
-            <!-- Tongue -->
-            <path d="M92 135 Q100 131 108 135 Q100 142 92 135 Z" fill="#ee6c4d"/>
-            <!-- White teeth -->
-            <rect x="94" y="125" width="12" height="3" rx="1" fill="#ffffff"/>
+            <!-- VISEME 4: OPEN "EE" (Wide smile for E/I/Y vowels) -->
+            <g id="viseme-ee" style="display:none;">
+              <path d="M103 145 Q120 141 137 145 Q135 156 120 156 Q105 156 103 145 Z" fill="#6d1a12" stroke="#4a100b" stroke-width="2"/>
+              <rect x="108" y="145" width="24" height="4.5" rx="2" fill="#ffffff"/>
+            </g>
+
+            <!-- VISEME 5: "MM" / CONSONANT (Slightly parted) -->
+            <g id="viseme-mm" style="display:none;">
+              <path d="M107 146 Q120 150 133 146" fill="none" stroke="#99281e" stroke-width="4.5" stroke-linecap="round"/>
+            </g>
           </g>
         </svg>
 
@@ -732,7 +732,7 @@
       <span>•</span>
       <span>Language: <strong>English (India) [en-IN]</strong></span>
       <span>•</span>
-      <span>Unrecognized Query Response: <em>"I don't understand the question"</em></span>
+      <span>Lip-Sync: <strong>Phonetic Viseme Engine</strong></span>
     </div>
     <div class="footer-actions">
       <button class="btn btn-secondary" onclick="simulateRandomQuestion()">🎲 Test Random Question</button>
@@ -752,7 +752,6 @@
     let wakeLock = null;
     let synth = window.speechSynthesis;
     let selectedVoice = null;
-    let restartTimer = null;
 
     // --- DOM Elements ---
     const mascotWrapper = document.getElementById('mascotWrapper');
@@ -770,6 +769,89 @@
     const eyesOpen = document.getElementById('eyesOpen');
     const eyesClosed = document.getElementById('eyesClosed');
 
+    // --- ADVANCED PHONETIC LIP-SYNC ENGINE ---
+    class LipSyncEngine {
+      constructor() {
+        this.visemes = {
+          closed: document.getElementById('viseme-closed'),
+          ah: document.getElementById('viseme-ah'),
+          oh: document.getElementById('viseme-oh'),
+          ee: document.getElementById('viseme-ee'),
+          mm: document.getElementById('viseme-mm')
+        };
+        this.jaw = document.getElementById('jawGroup');
+        this.timer = null;
+        this.activeViseme = 'closed';
+      }
+
+      setViseme(name) {
+        if (!this.visemes[name]) return;
+        Object.keys(this.visemes).forEach(k => {
+          if (this.visemes[k]) {
+            this.visemes[k].style.display = (k === name) ? 'block' : 'none';
+          }
+        });
+        this.activeViseme = name;
+        if (this.jaw) {
+          if (name === 'ah') {
+            this.jaw.style.transform = 'translateY(3px)';
+          } else if (name === 'oh') {
+            this.jaw.style.transform = 'translateY(2px)';
+          } else if (name === 'ee') {
+            this.jaw.style.transform = 'translateY(1.2px)';
+          } else {
+            this.jaw.style.transform = 'translateY(0px)';
+          }
+        }
+      }
+
+      start(utterance, text) {
+        this.stop();
+        const words = (text || '').toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/).filter(w => w.length > 0);
+        let wordIndex = 0;
+
+        // Hook 1: Natural word boundary event where available
+        utterance.onboundary = (e) => {
+          if (e.name === 'word') {
+            const word = words[wordIndex++] || '';
+            this.animateWordViseme(word);
+          }
+        };
+
+        // Hook 2: Continuous syllabic rhythm fallback (110ms-140ms cadence)
+        const syllableCycle = ['ah', 'oh', 'ee', 'mm', 'ah', 'ee', 'mm'];
+        let cycleIdx = 0;
+        this.timer = setInterval(() => {
+          const next = syllableCycle[cycleIdx % syllableCycle.length];
+          cycleIdx++;
+          this.setViseme(next);
+        }, 130);
+      }
+
+      animateWordViseme(word) {
+        if (!word) return;
+        if (/[ou]/i.test(word)) {
+          this.setViseme('oh');
+        } else if (/[a]/i.test(word)) {
+          this.setViseme('ah');
+        } else if (/[ei]/i.test(word)) {
+          this.setViseme('ee');
+        } else {
+          this.setViseme('mm');
+        }
+      }
+
+      stop() {
+        if (this.timer) {
+          clearInterval(this.timer);
+          this.timer = null;
+        }
+        this.setViseme('closed');
+      }
+    }
+
+    const lipSync = new LipSyncEngine();
+
     // --- Blink Animation Loop ---
     function triggerBlink() {
       eyesOpen.style.display = 'none';
@@ -777,9 +859,8 @@
       setTimeout(() => {
         eyesOpen.style.display = 'block';
         eyesClosed.style.display = 'none';
-      }, 180);
-      const nextBlink = Math.random() * 4000 + 2500;
-      setTimeout(triggerBlink, nextBlink);
+      }, 160);
+      setTimeout(triggerBlink, Math.random() * 4000 + 2500);
     }
     setTimeout(triggerBlink, 3000);
 
@@ -827,7 +908,6 @@
       const voices = synth.getVoices();
       if (!voices.length) return;
 
-      // Priority 1: Indian English
       selectedVoice = voices.find(v => v.lang === 'en-IN') ||
                       voices.find(v => v.lang.includes('en-IN')) ||
                       voices.find(v => v.name.toLowerCase().includes('india')) ||
@@ -847,11 +927,8 @@
           wakeLockStatus.innerText = 'Always Awake: ACTIVE';
           wakeLock.addEventListener('release', () => {
             wakeLockStatus.innerText = 'Always Awake: Released';
-            // Re-acquire automatically
             setTimeout(requestWakeLock, 2000);
           });
-        } else {
-          wakeLockStatus.innerText = 'WakeLock: Not Supported';
         }
       } catch (err) {
         console.warn('WakeLock error:', err);
@@ -862,7 +939,7 @@
     });
     requestWakeLock();
 
-    // --- Advanced Kerala ESL Accent-Tolerant Matching Engine ---
+    // --- Kerala ESL Accent-Tolerant Matcher ---
     function normalizeText(text) {
       return text.toLowerCase()
         .replace(/['’]/g, '')
@@ -909,20 +986,14 @@
       for (const item of questionsData) {
         const normQ = normalizeText(item.question);
         
-        // Exact match
-        if (normSpoken === normQ) {
-          return { item, score: 1.0 };
-        }
+        if (normSpoken === normQ) return { item, score: 1.0 };
 
-        // Check synonyms & variations
         let maxCandidateScore = calculateDiceCoefficient(normSpoken, normQ);
 
         if (item.synonyms) {
           for (const syn of item.synonyms) {
             const normSyn = normalizeText(syn);
-            if (normSpoken === normSyn) {
-              return { item, score: 0.99 };
-            }
+            if (normSpoken === normSyn) return { item, score: 0.99 };
             if (normSpoken.includes(normSyn) || normSyn.includes(normSpoken)) {
               maxCandidateScore = Math.max(maxCandidateScore, 0.88);
             }
@@ -931,14 +1002,12 @@
           }
         }
 
-        // Token overlap check for key nouns / question words
         const qWords = normQ.split(' ').filter(w => w.length > 2);
         let matchCount = 0;
         qWords.forEach(w => {
           if (spokenWords.has(w)) matchCount++;
         });
         const tokenRatio = qWords.length > 0 ? matchCount / qWords.length : 0;
-
         const combinedScore = (maxCandidateScore * 0.6) + (tokenRatio * 0.4);
 
         if (combinedScore > highestScore) {
@@ -947,21 +1016,19 @@
         }
       }
 
-      // Threshold: 0.58 confidence
       if (highestScore >= 0.58) {
         return { item: bestMatch, score: highestScore };
       }
       return null;
     }
 
-    // --- Statue Speech Output (Text-to-Speech) ---
+    // --- Statue Speech Output (Text-to-Speech with Proper LipSync) ---
     function speakAnswer(text, isUnderstood = true, matchedItem = null) {
       if (!synth) {
         console.error('Speech synthesis not supported');
         return;
       }
 
-      // Stop recognition while statue speaks to avoid acoustic feedback
       pauseRecognitionForSpeech();
 
       isSpeaking = true;
@@ -984,15 +1051,20 @@
 
       statueAnswerText.innerText = text;
 
-      // Cancel previous utterance
       synth.cancel();
 
       const utterance = new SpeechSynthesisUtterance(text);
       if (selectedVoice) utterance.voice = selectedVoice;
-      utterance.rate = 0.92; // Clear, measured speed for Kerala ESL students
+      utterance.rate = 0.92;
       utterance.pitch = 1.05;
 
+      // START PROPER LIP-SYNC ENGINE
+      utterance.onstart = () => {
+        lipSync.start(utterance, text);
+      };
+
       utterance.onend = () => {
+        lipSync.stop();
         isSpeaking = false;
         mascotWrapper.classList.remove('speaking');
         mascotWrapper.classList.add('listening');
@@ -1003,6 +1075,7 @@
 
       utterance.onerror = (e) => {
         console.warn('TTS error:', e);
+        lipSync.stop();
         isSpeaking = false;
         mascotWrapper.classList.remove('speaking');
         resumeRecognitionAfterSpeech();
@@ -1024,19 +1097,19 @@
       document.querySelectorAll('.q-card').forEach(c => c.classList.remove('selected'));
     }
 
-    // --- Speech Recognition Setup (Continuous & Resilient) ---
+    // --- Speech Recognition Setup ---
     function initSpeechRecognition() {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRecognition) {
         stateBadge.className = 'statue-state-badge state-confused';
-        stateBadge.innerText = '⚠️ Web Speech API not supported in this browser. Please use Chrome or Edge.';
+        stateBadge.innerText = '⚠️ Web Speech API not supported. Please use Chrome or Edge.';
         return;
       }
 
       recognition = new SpeechRecognition();
       recognition.continuous = true;
       recognition.interimResults = true;
-      recognition.lang = 'en-IN'; // Indian English accent model
+      recognition.lang = 'en-IN';
       recognition.maxAlternatives = 3;
 
       recognition.onstart = () => {
@@ -1052,7 +1125,7 @@
       };
 
       recognition.onresult = (event) => {
-        if (isSpeaking) return; // Prevent hearing its own voice
+        if (isSpeaking) return;
 
         let interimTranscript = '';
         let finalTranscript = '';
@@ -1088,37 +1161,26 @@
 
       recognition.onend = () => {
         isListening = false;
-        // Auto-restart watchdog if still supposed to listen and not currently speaking
         if (!isSpeaking) {
-          restartTimer = setTimeout(() => {
-            startRecognitionSafe();
-          }, 300);
+          setTimeout(startRecognitionSafe, 300);
         }
       };
     }
 
     function startRecognitionSafe() {
       if (!recognition) return;
-      try {
-        recognition.start();
-      } catch (e) {
-        // Already started or restarting
-      }
+      try { recognition.start(); } catch (e) {}
     }
 
     function pauseRecognitionForSpeech() {
       if (recognition && isListening) {
-        try {
-          recognition.abort();
-        } catch (e) {}
+        try { recognition.abort(); } catch (e) {}
       }
     }
 
     function resumeRecognitionAfterSpeech() {
       setTimeout(() => {
-        if (!isSpeaking) {
-          startRecognitionSafe();
-        }
+        if (!isSpeaking) startRecognitionSafe();
       }, 500);
     }
 
@@ -1139,18 +1201,16 @@
     // --- Core Processing Logic ---
     function handleStudentQuestion(questionText) {
       const match = findBestQuestionMatch(questionText);
-
       if (match) {
         const item = match.item;
         item._score = match.score;
         speakAnswer(item.answer, true, item);
       } else {
-        // Explicit Rule: If student asks any other question, answer with "I don't understand the question"
         speakAnswer("I don't understand the question.", false, null);
       }
     }
 
-    // --- Simulation Helpers for Testing / Demos ---
+    // --- Simulation Helpers ---
     function triggerQuestionById(id) {
       const item = questionsData.find(q => q.id === id);
       if (!item) return;
@@ -1182,7 +1242,6 @@
       renderQuestionList(questionsData);
       initSpeechRecognition();
       
-      // Auto-start recognition on first user click anywhere (browser autoplay policy)
       const enableAudioAndMic = () => {
         startRecognitionSafe();
         requestWakeLock();
@@ -1190,7 +1249,6 @@
       };
       document.addEventListener('click', enableAudioAndMic);
 
-      // Start listening directly
       startRecognitionSafe();
     });
   </script>
