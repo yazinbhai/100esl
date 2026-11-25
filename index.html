@@ -125,6 +125,174 @@
       color: #a7fff6;
     }
 
+    .pill-fullscreen {
+      background: rgba(244, 208, 111, 0.15);
+      border: 1px solid rgba(244, 208, 111, 0.4);
+      color: #fce19a;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .pill-fullscreen:hover {
+      background: rgba(244, 208, 111, 0.3);
+      color: #fff;
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    .pill-fullscreen.active {
+      background: rgba(23, 195, 178, 0.25);
+      border-color: var(--accent-teal);
+      color: #a7fff6;
+    }
+
+    /* Stage Full Screen Toggle Button */
+    .stage-fullscreen-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 25;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: rgba(15, 23, 42, 0.82);
+      border: 1px solid rgba(244, 208, 111, 0.45);
+      border-radius: 9999px;
+      color: #fdfbf7;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .stage-fullscreen-btn:hover {
+      background: rgba(244, 208, 111, 0.25);
+      border-color: var(--gold);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(244, 208, 111, 0.25);
+    }
+
+    .stage-fullscreen-btn:active {
+      transform: translateY(0);
+    }
+
+    .stage-fullscreen-btn .fs-icon {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    /* Fullscreen Statue Stage */
+    .statue-stage:fullscreen,
+    .statue-stage:-webkit-full-screen,
+    .statue-stage.fullscreen-mode {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vw;
+      max-height: 100vh;
+      margin: 0;
+      padding: clamp(16px, 3vh, 32px) clamp(20px, 4vw, 48px);
+      border-radius: 0;
+      border: none;
+      z-index: 999999;
+      background: radial-gradient(circle at 50% 25%, #182848 0%, #080c16 85%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+
+    .statue-stage:fullscreen::before,
+    .statue-stage:-webkit-full-screen::before,
+    .statue-stage.fullscreen-mode::before {
+      width: 500px;
+      height: 500px;
+      top: 10%;
+    }
+
+    .statue-stage:fullscreen .mascot-container,
+    .statue-stage:-webkit-full-screen .mascot-container,
+    .statue-stage.fullscreen-mode .mascot-container {
+      margin: 0 auto;
+    }
+
+    .statue-stage:fullscreen .statue-svg,
+    .statue-stage:-webkit-full-screen .statue-svg,
+    .statue-stage.fullscreen-mode .statue-svg {
+      width: clamp(260px, 45vh, 480px);
+      height: clamp(260px, 45vh, 480px);
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+    }
+
+    .statue-stage:fullscreen .statue-state-badge,
+    .statue-stage:-webkit-full-screen .statue-state-badge,
+    .statue-stage.fullscreen-mode .statue-state-badge {
+      font-size: clamp(1rem, 2.2vh, 1.35rem);
+      padding: 8px 28px;
+      margin-top: 14px;
+    }
+
+    .statue-stage:fullscreen .sound-waves,
+    .statue-stage:-webkit-full-screen .sound-waves,
+    .statue-stage.fullscreen-mode .sound-waves {
+      height: 36px;
+      gap: 8px;
+    }
+
+    .statue-stage:fullscreen .wave-bar,
+    .statue-stage:-webkit-full-screen .wave-bar,
+    .statue-stage.fullscreen-mode .wave-bar {
+      width: 7px;
+    }
+
+    .statue-stage:fullscreen .listening .wave-bar,
+    .statue-stage:-webkit-full-screen .listening .wave-bar,
+    .statue-stage.fullscreen-mode .listening .wave-bar {
+      animation: waveDanceFullscreen 0.8s infinite ease-in-out;
+    }
+
+    @keyframes waveDanceFullscreen {
+      0%, 100% { height: 10px; }
+      50% { height: 36px; }
+    }
+
+    .statue-stage:fullscreen .conversation-display,
+    .statue-stage:-webkit-full-screen .conversation-display,
+    .statue-stage.fullscreen-mode .conversation-display {
+      width: 100%;
+      max-width: 960px;
+      gap: 16px;
+      margin: 0 auto;
+    }
+
+    .statue-stage:fullscreen .speech-box,
+    .statue-stage:-webkit-full-screen .speech-box,
+    .statue-stage.fullscreen-mode .speech-box {
+      padding: clamp(14px, 2vh, 22px) clamp(16px, 2.5vw, 28px);
+    }
+
+    .statue-stage:fullscreen .box-text,
+    .statue-stage:-webkit-full-screen .box-text,
+    .statue-stage.fullscreen-mode .box-text {
+      font-size: clamp(1.15rem, 2.4vh, 1.55rem);
+      line-height: 1.5;
+    }
+
+    .statue-stage:fullscreen .box-label,
+    .statue-stage:-webkit-full-screen .box-label,
+    .statue-stage.fullscreen-mode .box-label {
+      font-size: clamp(0.85rem, 1.7vh, 1.05rem);
+    }
+
     /* Main Kiosk Area */
     main {
       flex: 1;
@@ -555,6 +723,10 @@
         <span id="micIcon">🎙️</span>
         <span id="micStatusText">Statue Mic: ACTIVE</span>
       </div>
+      <div class="pill pill-fullscreen" id="fullscreenPill" onclick="toggleStatueFullscreen()" title="Toggle Statue Full Screen (Press F)">
+        <span id="fullscreenIcon">⛶</span>
+        <span id="fullscreenText">Full Screen</span>
+      </div>
     </div>
   </header>
 
@@ -562,6 +734,12 @@
   <main>
     <!-- Left: Talking Statue & Live Transcript -->
     <section class="statue-stage" id="stageContainer">
+
+      <!-- Stage Full Screen Toggle Button -->
+      <button class="stage-fullscreen-btn" id="stageFullscreenBtn" onclick="toggleStatueFullscreen()" title="Toggle Full Screen (Press F or Esc)">
+        <span class="fs-icon">⛶</span>
+        <span class="fs-label">Full Screen</span>
+      </button>
 
       <!-- High-Quality Anatomical Talking Mascot SVG -->
       <div class="mascot-container" id="mascotWrapper">
@@ -1441,6 +1619,125 @@
       studentSpeechText.innerText = `"${randomUnknown}"`;
       handleStudentQuestion(randomUnknown);
     }
+
+    // --- Fullscreen Statue Toggle Logic ---
+    function isStageInFullscreen() {
+      return !!(
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement ||
+        document.msFullscreenElement ||
+        (stageContainer && stageContainer.classList.contains('fullscreen-mode'))
+      );
+    }
+
+    function updateFullscreenUI(active) {
+      const stageBtn = document.getElementById('stageFullscreenBtn');
+      const pillBtn = document.getElementById('fullscreenPill');
+      const icon = active ? '🗗' : '⛶';
+      const text = active ? 'Exit Full Screen' : 'Full Screen';
+
+      if (stageBtn) {
+        stageBtn.innerHTML = `<span class="fs-icon">${icon}</span> <span class="fs-label">${text}</span>`;
+        stageBtn.title = active ? 'Exit Full Screen (Esc)' : 'Expand Statue Full Screen (Press F)';
+      }
+      if (pillBtn) {
+        const pIcon = document.getElementById('fullscreenIcon');
+        const pText = document.getElementById('fullscreenText');
+        if (pIcon) pIcon.innerText = icon;
+        if (pText) pText.innerText = text;
+        if (active) {
+          pillBtn.classList.add('active');
+        } else {
+          pillBtn.classList.remove('active');
+        }
+      }
+      if (stageContainer) {
+        if (active) {
+          stageContainer.classList.add('fullscreen-mode');
+          document.body.classList.add('statue-fullscreen-active');
+        } else {
+          stageContainer.classList.remove('fullscreen-mode');
+          document.body.classList.remove('statue-fullscreen-active');
+        }
+      }
+    }
+
+    async function toggleStatueFullscreen() {
+      const currentlyFs = isStageInFullscreen();
+
+      if (!currentlyFs) {
+        if (stageContainer && stageContainer.requestFullscreen) {
+          try {
+            await stageContainer.requestFullscreen();
+          } catch (e) {
+            updateFullscreenUI(true);
+          }
+        } else if (stageContainer && stageContainer.webkitRequestFullscreen) {
+          try {
+            stageContainer.webkitRequestFullscreen();
+          } catch (e) {
+            updateFullscreenUI(true);
+          }
+        } else if (stageContainer && stageContainer.msRequestFullscreen) {
+          try {
+            stageContainer.msRequestFullscreen();
+          } catch (e) {
+            updateFullscreenUI(true);
+          }
+        } else {
+          updateFullscreenUI(true);
+        }
+      } else {
+        if (document.exitFullscreen && document.fullscreenElement) {
+          try {
+            await document.exitFullscreen();
+          } catch (e) {
+            updateFullscreenUI(false);
+          }
+        } else if (document.webkitExitFullscreen && document.webkitFullscreenElement) {
+          try {
+            document.webkitExitFullscreen();
+          } catch (e) {
+            updateFullscreenUI(false);
+          }
+        } else if (document.msExitFullscreen && document.msFullscreenElement) {
+          try {
+            document.msExitFullscreen();
+          } catch (e) {
+            updateFullscreenUI(false);
+          }
+        } else {
+          updateFullscreenUI(false);
+        }
+      }
+    }
+
+    // Sync with native browser fullscreen changes (e.g. pressing Esc key)
+    ['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange', 'MSFullscreenChange'].forEach(evt => {
+      document.addEventListener(evt, () => {
+        const isFs = !!(
+          document.fullscreenElement ||
+          document.webkitFullscreenElement ||
+          document.mozFullScreenElement ||
+          document.msFullscreenElement
+        );
+        updateFullscreenUI(isFs);
+      });
+    });
+
+    // Keyboard shortcut: Press 'F' to toggle fullscreen (when not typing in search box)
+    document.addEventListener('keydown', (e) => {
+      if ((e.key === 'f' || e.key === 'F') && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        const tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+        if (tag !== 'input' && tag !== 'textarea') {
+          e.preventDefault();
+          toggleStatueFullscreen();
+        }
+      } else if (e.key === 'Escape' && isStageInFullscreen()) {
+        updateFullscreenUI(false);
+      }
+    });
 
     // --- Initialization on Load ---
     window.addEventListener('DOMContentLoaded', () => {
